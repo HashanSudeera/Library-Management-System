@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+  /* Brown / Gold Shades */
+  --brown-50: #f9f6f0;
+  --brown-100: #ece3d2;
+  --brown-200: #e3d6bc;
+  --brown-300: #d6c39d;
+  --brown-400: #ceb78a;
+  --brown-500: #c2a56d;
+  --brown-600: #b19663;
+  --brown-700: #8a754d;
+  --brown-800: #6b5b3c;
+  --brown-900: #51452e;
+
+  /* Blue / Slate Shades */
+  --blue-50: #eef2f4;
+  --blue-100: #cad6de;
+  --blue-200: #b0c2ce;
+  --blue-300: #8ca6b8;
+  --blue-400: #7695aa;
+  --blue-500: #547a95;
+  --blue-600: #4c6f88;
+  --blue-700: #3c576a;
+  --blue-800: #2e4352;
+  --blue-900: #23333f;
+
+  /* Grey Shades */
+  --grey-50: #e8e8e8;
+  --grey-100: #b9b9b9;
+  --grey-200: #979797;
+  --grey-300: #676767;
+  --grey-400: #494949;
+  --grey-500: #1c1c1c;
+  --grey-600: #191919;
+  --grey-700: #141414;
+  --grey-800: #0f0f0f;
+  --grey-900: #0c0c0c;
+}
+
+
+.custom-sidebar {
+  font-family: "Asap Condensed", sans-serif;
+  width: 230px;
+  min-height: calc(100vh - 75px);
+
+}
+
+
+.custom-nav-link {
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 0 10px 10px 0;
+  transition: all 0.2s ease-in-out;
+  color: var(--blue-500);
+}
+
+.custom-nav-link:not(.active-tab):hover {
+  background-color: var(--blue-100);
+  color: var(--blue-500);
+}
+
+.active-tab {
+  width: 230px;
+  background-color: var(--blue-900);
+  color: var(--brown-500);
+}
+
+.active-tab:hover {
+  color: var(--brown-500);
+}
+
+.active-tab i {
+  color: var(--brown-500);
+}
+
+.brand-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.0rem;
+  font-weight: 800;
+  color: var(--blue-800, #2e4352);
+  line-height: 0.9;
+  letter-spacing: -0.5px;
+  margin: 4px 0 0 0;
+}
+
+.brand-subtitle {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--blue-500, #547a95);
+  letter-spacing: 0.8px;
+  margin-top: 1px;
+  text-transform: capitalize;
+}
+
+/*---------------------------------------------*/
+
+
+
+
+
+
+
