@@ -13,7 +13,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         </li>
 
         <li class="nav-item mb-1">
-            <a href="books.php" class="nav-link custom-nav-link d-flex align-items-center gap-3 py-2 px-4 <?php echo ($current_page == 'books.php' || $current_page == 'add_book.php' || $current_page == 'edit_book.php') ? 'active-tab' : ''; ?>">
+            <a href="books.php" class="nav-link custom-nav-link d-flex align-items-center gap-3 py-2 px-4 <?php echo ($current_page == '/books/books.php') ? 'active-tab' : ''; ?>">
                 <i class="bi bi-book fs-5"></i>
                 Book Catalog
             </a>
