@@ -18,7 +18,7 @@
 
             <div class="card bg-body-tertiary">
                 <div class="card-body">
-                    <p class="mb-0">This is where your member table or registration form will be placed.</p>
+                    <p class="mb-0">This is where your member table or registration form will be placed.  </p>
                 </div>
             </div>
         </div>
