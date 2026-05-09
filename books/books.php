@@ -2,8 +2,9 @@
      include '../includes/db_config.php';
     ?>
 
-<base href="../">
+
 <!DOCTYPE html>
+<base href="../">
 <html>
     <?php include '../includes/header.php';  ?>
 
