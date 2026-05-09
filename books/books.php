@@ -21,57 +21,54 @@
             <div class="card bg-body-tertiary">
                 <div class="card-body">
 
-                <div class="container">
-                    <a class="btn btn btn-secondary" href="books/newBook.php">Add New Book</a>
-                    <br><br>
-                    
-  <table class="table table-hover">
-  <thead class="table-success">
-    <tr>
-      
-      <th scope="col">Book ID</th>
-      <th scope="col">Book Name</th>
-      <th scope="col">Book Category</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
+                    <div class="container">
+                            <a class="btn btn btn-secondary" href="books/newBook.php">Add New Book</a>
+                            <br><br>
 
-  <tbody>
+                            <table class="table table-hover">
+                                    <thead class="table-success">
+                                        <tr>
+                                        
+                                        <th scope="col">Book ID</th>
+                                        <th scope="col">Book Name</th>
+                                        <th scope="col">Book Category</th>
+                                        <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
 
-    <?php
-    $sql="SELECT book_id, book_name, category_id FROM book";
-    $result=$conn->query($sql);
+                                    <tbody>
 
-    /* echo "No of Books: " . $result->num_rows . "<br>"; */
-    if($result->num_rows >0){
-      while($row=$result->fetch_assoc()){
-        echo "<tr>
-        <td>" .$row["book_id"] . "</td>
-        <td>" . $row["book_name"] . "</td>
-        <td>" . $row["category_id"] . "</td>
-        <td>
+                                        <?php
+                                        $sql="SELECT book_id, book_name, category_id FROM book";
+                                        $result=$conn->query($sql);
 
-        <button type='button' class='btn btn-primary'>
-                        <i class='bi bi-pencil-square'></i>
-                        </button>
+                                        /* echo "No of Books: " . $result->num_rows . "<br>"; */
+                                        if($result->num_rows >0){
+                                        while($row=$result->fetch_assoc()){
+                                            echo "<tr>
+                                            <td>" .$row["book_id"] . "</td>
+                                            <td>" . $row["book_name"] . "</td>
+                                            <td>" . $row["category_id"] . "</td>
+                                            <td>
 
-        <button type='button' class='btn btn-danger'>
-                        Delete 
-                        </button>
-        </tr>";
-      }
-    }
-    ?>
-    
-  </tbody>
-        </table>
-    </div>
+                                            <button type='button' class='btn btn-primary'>
+                                                            <i class='bi bi-pencil-square'></i>
+                                                            </button>
 
-                    
-                </div>
+                                            <button type='button' class='btn btn-danger'>
+                                                            Delete 
+                                                            </button>
+                                            </tr>";
+                                            }
+                                        }
+                                        ?>
+                                        
+                                    </tbody>
+                            </table>
+                    </div>
+                 </div>
             </div>
         </div>
-
     </div>
 
 
