@@ -20,7 +20,55 @@
 
             <div class="card bg-body-tertiary">
                 <div class="card-body">
-                    <p class="mb-0">Let' add some books </p>
+
+                <div class="container">
+                    <button type="button" class="btn btn-secondary">
+                         Add New Book
+                    </button><br><br>
+  
+  <table class="table table-hover">
+  <thead class="table-success">
+    <tr>
+      
+      <th scope="col">Book ID</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Book Category</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <?php
+    $sql="SELECT book_id, book_name, category_id FROM book";
+    $result=$conn->query($sql);
+
+    /* echo "No of Books: " . $result->num_rows . "<br>"; */
+    if($result->num_rows >0){
+      while($row=$result->fetch_assoc()){
+        echo "<tr>
+        <td>" .$row["book_id"] . "</td>
+        <td>" . $row["book_name"] . "</td>
+        <td>" . $row["category_id"] . "</td>
+        <td>
+
+        <button type='button' class='btn btn-primary'>
+                        <i class='bi bi-pencil-square'></i>
+                        </button>
+
+        <button type='button' class='btn btn-danger'>
+                        Delete 
+                        </button>
+        </tr>";
+      }
+    }
+    ?>
+    
+  </tbody>
+        </table>
+    </div>
+
+                    
                 </div>
             </div>
         </div>
