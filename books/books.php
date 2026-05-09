@@ -22,10 +22,9 @@
                 <div class="card-body">
 
                 <div class="container">
-                    <button type="button" class="btn btn-secondary">
-                         Add New Book
-                    </button><br><br>
-  
+                    <a class="btn btn btn-secondary" href="books/newBook.php">Add New Book</a>
+                    <br><br>
+                    
   <table class="table table-hover">
   <thead class="table-success">
     <tr>
