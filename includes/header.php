@@ -1,7 +1,7 @@
 <?php
 // Define the Base URL for the project
 if(!defined('BASE_URL')){
-    define('BASE_URL', 'http://localhost/web_project/Smart_Library/'); 
+    define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
 }
 ?>
 <head>

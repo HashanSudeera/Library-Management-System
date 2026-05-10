@@ -17,7 +17,7 @@
         <?php include '../includes/sidebar.php';?>
 
         <div class="main-content flex-grow-1 p-4">
-            <h2 class="mb-4">Book Catalog haha</h2>
+            <h2 class="mb-4">Book Catalog</h2>
 
             <div class="card bg-body-tertiary">
                 <div class="card-body">
