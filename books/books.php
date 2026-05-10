@@ -52,13 +52,13 @@
                                             <td>" . $row["category_id"] . "</td>
                                             <td>
 
-                                            <button type='button' class='btn btn-primary'>
+                                            <a href='./books/editBook.php?id=" . $row['book_id']. "' class='btn btn-primary'>
                                                             <i class='bi bi-pencil-square'></i>
-                                                            </button>
+                                            </a>
 
-                                            <button type='button' class='btn btn-danger'>
-                                                            Delete 
-                                                            </button>
+                                            <a href='./books/deleteBook.php?id=" . $row['book_id']. "' class='btn btn-danger' onclick='return confirm(\"Are you sure? \")'>
+                                                            Delete
+                                            </a>
                                             </tr>";
                                             }
                                         }

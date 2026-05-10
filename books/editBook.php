@@ -1,5 +1,22 @@
 <?php 
      include '../includes/db_config.php';
+
+     if(isset($_GET['id'])){
+        $id= mysqli_real_escape_string($conn, $_GET['id']);
+        $sql="SELECT * FROM book WHERE book_id ='$id'";
+        $result= $conn->query($sql);
+
+        if ($result->num_rows>0){
+            $book =$result->fetch_assoc();
+        }else{
+            echo "Book not Found!";
+            exit();
+        }
+
+     }else{
+            header("Location: books.php");
+             exit();
+     }
     ?>
 
 
@@ -17,28 +34,27 @@
         <?php include '../includes/sidebar.php';?>
 
         <div class="main-content flex-grow-1 p-4">
-            <h2 class="mb-4">Register a New Book</h2>
+            <h2 class="mb-4">Update an Existing Book</h2>
 
 
             <div class="card bg-body-tertiary">
                 <div class="card-body">
 
 
-                  <form action="books/bookProcess.php" class="needs-validation" novalidate method="post">
+                  <form action="books/updateBook.php" class="needs-validation" novalidate method="post">
 
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-lablel">Book ID</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="book_id" pattern="B\d{3}" placeholder="e.g., B001"required>
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">Please provide a valid Book ID (e.g., B001).</div>
+                            <input type="hidden" name="book_id" value="<?php echo $book['book_id']; ?>">
+                            <input type="text" class="form-control" value="<?php echo $book['book_id']; ?>" disabled>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-lable">Book Name</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="book_name" value="" placeholder="Potta Harry" required>
+                            <input type="text" class="form-control" name="book_name" value="<?php echo $book['book_name']; ?>" required>
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Please provide a valid Book Name</div>
                         </div>
@@ -50,16 +66,16 @@
 
                                      <div class="col-sm-6">
                                     <select name="category_id" class="form-select" required>
-                                        <option value="" selected disabled>Select Category</option>
+                                       
                                         <?php
                                           $sql = "SELECT * FROM bookcategory";
                                             $result = $conn->query($sql);         
                                             if ($result->num_rows > 0) {
-                                            while($row = $result->fetch_assoc()) {
-               
-                                            echo "<option value='" . $row['category_id'] . "'>" .  $row['category_Name'] ."</option>";
-                                            }
-                                             } else {
+                                                 while($row = $result->fetch_assoc()) {
+                                                $selected =($row['category_id'] ==$book['category_id'])? "selected" : "" ;
+                                                 echo "<option value='" . $row['category_id'] . "' $selected >" .  $row['category_Name'] ."</option>";
+                                                    }
+                                            } else {
                                              echo "<option value=''>No categories found</option>";
                                             }
                                             ?>
