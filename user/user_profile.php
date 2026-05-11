@@ -1,5 +1,13 @@
-<?php include '../includes/session.php'?>
+<!DOCTYPE html>
+<html lang="en">
 
+<?php include '../includes/header.php' ?>
+<head>
+    <link rel="stylesheet" href="../assets/profile.css">
+</head>
+<body>
+
+<?php include '../includes/top_navbar.php' ?>
 <?php 
 
 $user_id = $_SESSION['user_id'];
@@ -12,17 +20,6 @@ $user = mysqli_fetch_assoc($result);
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include '../includes/header.php' ?>
-<head>
-    <link rel="stylesheet" href="../assets/profile.css">
-</head>
-<body>
-
-<?php include '../includes/top_navbar.php' ?>
 
 <div class="container mt-4">
 
@@ -136,10 +133,17 @@ $user = mysqli_fetch_assoc($result);
 
                 <hr>
 
-                <div class="d-flex justify-content-end gap-3 mt-4">
-
-                    <a href="" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Delete Account</a>
-                    <a href="./user_update.php" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Edit User Details</a>
+                <div class="row g-2 mt-4 justify-content-end">
+                    <div class="col-md-3">
+                        <form method="POST" action="../action/login_register.php" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+        
+                            <button type="submit" name="delete_account" class="btn btn-outline-danger w-100 py-2">Delete Account</button>
+                        </form>
+                    </div>    
+                    </div class="col-md-3"> 
+                        <a href="./user_update.php" class="btn btn-secondary w-100 px-4" tabindex="-1" role="button" aria-disabled="true">Edit User Details</a>
+                    </div>
                 </div>
 
             </div>

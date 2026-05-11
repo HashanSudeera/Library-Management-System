@@ -85,20 +85,18 @@
 }
 
 /* UPDATE BUTTON */
-
-.btn-primary{
+.btn-danger{
     background:var(--grey-50);
     color:var(--grey-700);
     padding:10px 25px;
 }
 
-.btn-primary:hover{
+.btn-danger:hover{
     background:var(--brown-700);
     color:var(--brown-50);
 }
 
 /* DELETE BUTTON */
-
 .btn-secondary{
     border:1px solid var(--brown-800);
     padding:10px 25px;

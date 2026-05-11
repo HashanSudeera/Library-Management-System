@@ -1,3 +1,4 @@
+<?php include 'session.php'?>
 <?php
 $current_page = basename($_SERVER['PHP_SELF']);
 
@@ -32,12 +33,13 @@ if(!defined('BASE_URL')){
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                            <?php  echo "{$username}" ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="user_profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="./user/user_profile.php">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Log Out</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true">Log Out</a></li>
+                            
                         </ul>
                     </li>
                 </ul>

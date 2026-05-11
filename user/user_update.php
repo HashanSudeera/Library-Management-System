@@ -1,5 +1,13 @@
-<?php include '../includes/session.php'?>
+<!DOCTYPE html>
+<html lang="en">
 
+<?php include '../includes/header.php' ?>
+<head>
+    <link rel="stylesheet" href="../assets/profile.css">
+</head>
+<body>
+
+<?php include '../includes/top_navbar.php' ?>
 <?php 
 
 $user_id = $_SESSION['user_id'];
@@ -11,18 +19,6 @@ $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result); 
 
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include '../includes/header.php' ?>
-<head>
-    <link rel="stylesheet" href="../assets/profile.css">
-</head>
-<body>
-
-<?php include '../includes/top_navbar.php' ?>
 
 <div class="container mt-4">
 

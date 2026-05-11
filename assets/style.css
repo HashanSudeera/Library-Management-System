@@ -94,6 +94,16 @@
   margin-top: 1px;
   text-transform: capitalize;
 }
+.custom-table-header th {
+    background-color: var(--brown-600); 
+    color: var(--brown-50);
+}
 
-/*---------------------------------------------*/
 
+.font_change{
+    font-family: "Asap Condensed", sans-serif;
+}
+
+.custom_card{
+    background-color: var(--blue-600);
+}

@@ -5,6 +5,7 @@ session_start();
 include 'db_config.php';
 
 // CHECK USER LOGGED IN
+
 if(!isset($_SESSION['user_id'])){
 
     header("Location: ./index.php");
@@ -12,5 +13,7 @@ if(!isset($_SESSION['user_id'])){
     exit();
 
 }
+$user_id = $_SESSION['user_id'];
+$username = $_SESSION['username'];
 
 ?>

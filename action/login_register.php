@@ -114,6 +114,7 @@ if(isset($_POST['login'])){
     $password = $_POST['password'];
 
     // Check if the username and password exist in the same row
+
     $encrypt_password = md5($password);
 
     $query = "SELECT * FROM user WHERE username='$username' AND password='$encrypt_password'";
@@ -122,6 +123,7 @@ if(isset($_POST['login'])){
     if(mysqli_num_rows($result) > 0){
 
     // get current user details
+
         $user = mysqli_fetch_assoc($result);
 
         $_SESSION['user_id'] = $user['user_id'];
@@ -136,13 +138,16 @@ if(isset($_POST['login'])){
     else {
 
         // No match found
+
         header("Location: ../index.php?status=invalid");
         exit();
     }
 }
 ?>
 <?php
+
 session_start();
+
 include '../includes/db_config.php';
 
 if (isset($_POST['update'])) {
@@ -159,6 +164,7 @@ if (isset($_POST['update'])) {
     $confirm     = $_POST['confirm_password'];
 
     //Check that data has already taken by someone
+
     $check_sql = "SELECT * FROM user WHERE 
                  (user_id='$new_user_id' OR email='$email' OR username='$username') 
                  AND user_id != '$current_sid'";
@@ -167,7 +173,7 @@ if (isset($_POST['update'])) {
 
     if (mysqli_num_rows($check_result) > 0) {      
 
-        header("Location: ../user/user_update.php?status=exists"); // process stop if the data already exixts
+        header("Location: ../user/user_update.php?status=exists"); 
         exit();
     }
 
@@ -190,7 +196,7 @@ if (isset($_POST['update'])) {
                 password='$encrypt_password' 
                 WHERE user_id='$current_sid'";
     } else {
-        // If updating profile data only
+        
 
         $sql = "UPDATE user SET 
                 user_id='$new_user_id',
@@ -209,6 +215,33 @@ if (isset($_POST['update'])) {
     } else {
         header("Location: ../user/user_update.php?status=failed");
     }
+    exit();
+}
+if (isset($_POST['delete_account'])) {
+
+    //get current user data
+
+    $delete_id = $_SESSION['user_id'];
+    
+
+    $sql = "DELETE FROM user WHERE user_id = '$delete_id'";
+    
+    if (mysqli_query($conn, $sql)) {
+        
+        //clear all session data
+        session_unset();
+        session_destroy();
+        
+        //redirect to index page
+        header("Location: ../index.php?status=deleted");
+        exit();
+        
+    } 
+}
+if (isset($_GET['logout'])) { 
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php?status=logged_out");
     exit();
 }
 ?>
