@@ -95,11 +95,133 @@
   text-transform: capitalize;
 }
 
-/*---------------------------------------------*/
+/*------------------borrow---------------------------*/
+
+/* Add Record Button */
+.btn-add-record {
+    background-color: var(--brown-800); /* Deep brown from your palette */
+    color: var(--brown-50);
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-add-record:hover {
+    background-color: var(--brown-900);
+    color: #ffffff;
+}
+
+/* Table Header Strip */
+.custom-table-header th {
+    background-color: var(--grey-400); /* Dark slate for dark mode compatibility */
+    color: white;
+}
+
+/* Status Badges */
+.custom-badge-borrowed {
+    background-color: rgba(220, 53, 69, 0.15); /* Bootstrap Danger light */
+    color: #ff6b72;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.custom-badge-available {
+    background-color: rgba(25, 135, 84, 0.15); /* Bootstrap Success light */
+    color: #4ed994;
+    border: 1px solid rgba(25, 135, 84, 0.3);
+}
+
+/* Custom Pagination Active State */
+.custom-pagination .page-item.active .page-link {
+    background-color: var(--brown-800); /* Match the add button */
+    border-color: var(--brown-800);
+    color: var(--brown-50);
+}
+
+.custom-pagination .page-item .page-link {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*------------borrow add form--------------------*/
+
+/* Left Side: Form Container */
+.custom-form-card {
+    background-color: var(--brown-50); /* Light beige from foundation */
+    border: 1px solid var(--brown-100);
+}
+
+/* Form Inputs */
+.custom-input {
+    background-color: #ffffff !important;
+    border: 1px solid var(--brown-200) !important;
+    color: var(--blue-700) !important;
+    box-shadow: none !important;
+}
+
+.custom-input::placeholder {
+    color: var(--grey-200) !important;
+}
+
+.custom-input:focus {
+    border-color: var(--brown-400) !important;
+    box-shadow: 0 0 0 0.25rem rgba(194, 165, 109, 0.25) !important; /* Gold focus ring */
+}
+
+/* Custom Radio Buttons */
+.custom-radio .form-check-input {
+    background-color: #ffffff;
+    border: 2px solid var(--brown-300);
+    width: 1.25em;
+    height: 1.25em;
+    cursor: pointer;
+}
+
+.custom-radio .form-check-input:checked {
+    background-color: var(--brown-400);
+    border-color: var(--brown-400);
+}
+
+/* Cancel Button */
+.btn-cancel {
+    background-color: var(--brown-50);
+    color: var(--brown-800);
+    border: 1px solid var(--brown-300);
+    transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background-color: var(--brown-100);
+    color: var(--brown-900);
+}
+
+/* Add Record Button */
+.btn-add {
+    background-color: var(--blue-800); /* Dark slate from foundation */
+    color: var(--brown-50);
+    border: 1px solid var(--blue-900);
+    transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+    background-color: var(--blue-900);
+    color: #ffffff;
+}
+
+/* Right Side: Filing Guidelines Container */
+.custom-guide-card {
+    background-color: var(--blue-100); /* Slate blue-grey from foundation */
+    border: 1px solid var(--blue-200);
+}
+
+.guideline-item li {
+    margin-bottom: 4px;
+}
 
 
 
-
-
+/*--------------------------------*/
 
 

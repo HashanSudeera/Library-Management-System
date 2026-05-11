@@ -1,7 +1,7 @@
 <?php
 // Define the Base URL for the project
 if(!defined('BASE_URL')){
-    define('BASE_URL', 'http://localhost/web_project/Smart_Library/'); 
+    define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
 }
 ?>
 <head>
@@ -13,5 +13,5 @@ if(!defined('BASE_URL')){
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/style.css">
 </head>
