@@ -134,5 +134,21 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 
+    <?php if (isset($_GET['status']) && $_GET['status'] == 'updated'): ?>
+        <script>
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    alert('Data updated successfully!');
+                    
+                    // Clean the URL to remove the status, but KEEP the Borrow ID!
+                    let currentUrl = window.location.pathname;
+                    let borrowId = "<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>";
+                    window.location.href = '../borrow/borrow.php';
+                    window.history.replaceState(null, null, currentUrl + "?id=" + borrowId);
+                }, 100);
+            });
+        </script>
+    <?php endif; ?>
+
 </body>
 </html>
