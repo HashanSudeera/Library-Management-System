@@ -15,7 +15,7 @@ include '../actions/borrow_fetch.php';
 
         <div class="main-content flex-grow-1 p-4">
 
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="font_change">
                 <ol class="breadcrumb mb-3 fs-6">
                     <li class="breadcrumb-item text-muted">Borrow</li>
                     <li class="breadcrumb-item active" aria-current="page">Borrowing Records</li>
@@ -24,9 +24,9 @@ include '../actions/borrow_fetch.php';
 
             <div class="row align-items-center mb-4">
 
-                <div class="col-md-8 d-flex gap-4">
-                    <div class="card bg-body-tertiary border-0 shadow-sm flex-fill p-2 rounded-3">
-                        <div class="card-body py-2">
+                <div class="col-md-8 d-flex gap-4 font_change">
+                    <div class="card custom_card border-0 shadow-sm flex-fill p-2 rounded-3">
+                        <div class="card-body py-2 ">
                             <div class="d-flex align-items-center mb-1">
                                 <i class="bi bi-folder2-open text-muted me-2 fs-5"></i>
                                 <span class="text-muted fw-medium fs-6">Borrowed</span>
@@ -35,7 +35,7 @@ include '../actions/borrow_fetch.php';
                         </div>
                     </div>
 
-                    <div class="card bg-body-tertiary border-0 shadow-sm flex-fill p-2 rounded-3">
+                    <div class="card custom_card border-0 shadow-sm flex-fill p-2 rounded-3">
                         <div class="card-body py-2">
                             <div class="d-flex align-items-center mb-1">
                                 <i class="bi bi-folder2-open text-muted me-2 fs-5"></i>
@@ -146,7 +146,7 @@ include '../actions/borrow_fetch.php';
             window.history.replaceState(null, null, window.location.pathname);
         }, 300); 
     </script>
-<?php endif; ?>
+    <?php endif; ?>
 
 </body>
 

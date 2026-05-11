@@ -13,7 +13,7 @@
 
         <div class="main-content flex-grow-1 p-4">
 
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb"  class="font_change">
                 <ol class="breadcrumb mb-4 fs-6">
                     <li class="breadcrumb-item text-muted">Borrow</li>
                     <li class="breadcrumb-item text-muted" aria-current="page">Borrowing Records</li>

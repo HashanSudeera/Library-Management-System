@@ -224,4 +224,10 @@
 
 /*--------------------------------*/
 
+.font_change{
+    font-family: "Asap Condensed", sans-serif;
+}
 
+.custom_card{
+    background-color: var(--brown-200);
+}
