@@ -29,22 +29,32 @@
 
         <div class="main-content flex-grow-1 p-4">
             <h2 class="mb-4">Book Catalog</h2>
+            <p class="mb-4">Recently added books for quick review and management.</p>
+<div class="card-body">
 
-            <div class="card bg-body-tertiary">
-                <div class="card-body">
+           <div class="card bg-body-tertiary shadow-sm">
+    <div class="card-body">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            
 
-                    <div class="container">
+           
+                <div class="card border-dark mb-3 text-center card w-75 mb-3 " style="max-width: 18rem;">
+                    <p class="card-header">Total Books</p>
+                    <h5 class="card-title"><?php echo $total_books; ?></h5>
+                </div>
+            
 
-                        <div class="d-flex justify-content-end">
-                            <a href="books/newBook.php" class="btn btn-lg text-white px-4 py-2" style="background-color: var(--brown-900);">
-                                <i class="bi bi-plus-circle me-2"></i>Add New Book</a>
-                        </div>
-                            <br><br>
+            <a href="books/newBook.php" class="btn text-white px-6 btn-lg " style="background-color: var(--brown-900); border-radius: 8px;">
+                <i class="bi bi-plus-circle me-2"></i>Add New Book
+            </a>
+        </div>
+            
 
                             <table class="table table-hover">
 
                                     <thead class="custom-header">
-                                        <tr>
+                                        <tr class="table-active">
                                         <th scope="col">Book ID</th>
                                         <th scope="col">Book Name</th>
                                         <th scope="col">Book Category</th>
@@ -52,7 +62,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody class="table-group-divider">
 
                                         <?php
                                         /* $sql="SELECT book_id, book_name, category_id FROM book";
@@ -67,12 +77,12 @@
                                             <td>" . $row["category_id"] . "</td>
                                             <td>
 
-                                            <a href='./books/editBook.php?id=" . $row['book_id']. "' class='btn btn-primary'>
+                                            <a href='./books/editBook.php?id=" . $row['book_id']. "' class='btn btn-light'>
                                                             <i class='bi bi-pencil-square'></i>
                                             </a>
 
-                                            <a href='./books/deleteBook.php?id=" . $row['book_id']. "' class='btn btn-danger' onclick='return confirm(\"Are you sure? \")'>
-                                                            Delete
+                                            <a href='./books/deleteBook.php?id=" . $row['book_id']. "' class='btn btn-light' onclick='return confirm(\"Are you sure? \")'>
+                                                            <i class='bi bi-trash3'></i>
                                             </a>
                                             </tr>";
                                             }
@@ -85,7 +95,8 @@
                  </div>
             </div>
         </div>
-</div>
+    </div>
+
 
 <ul class="pagination justify-content-center" >
     <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
