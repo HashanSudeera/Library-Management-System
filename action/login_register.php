@@ -105,6 +105,9 @@ if(isset($_POST['register'])){
 
     }
 }
+?>
+<?php
+session_start();
 if(isset($_POST['login'])){
 
     $username = $_POST['username'];
@@ -118,7 +121,15 @@ if(isset($_POST['login'])){
 
     if(mysqli_num_rows($result) > 0){
 
+    // get current user details
+        $user = mysqli_fetch_assoc($result);
+
+        $_SESSION['user_id'] = $user['user_id'];
+
+        $_SESSION['username'] = $user['username'];
+
         // Matching user found
+
         header("Location: ../dashboard.php");
         exit();
     } 
