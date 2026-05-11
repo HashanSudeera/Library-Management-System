@@ -1,5 +1,6 @@
 <?php 
      include '../includes/db_config.php';
+
      if(isset($_GET['id'])){
         $id= mysqli_real_escape_string($conn, $_GET['id']);
         $sql="SELECT * FROM book WHERE book_id ='$id'";
@@ -52,7 +53,7 @@
                          <hr class="mb-4" style="border-color: var(--brown-600);">
                            
 
-                  <form action="books/bookProcess.php" class="needs-validation" novalidate method="post">
+                  <form action="books/updateBook.php" class="needs-validation" novalidate method="post">
 
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-lablel">Book ID</label>
@@ -104,13 +105,6 @@
 
                   </form>
                 </div>
-
-                <?php if (isset($_GET['status']) && $_GET['status'] == 'duplicate'): ?>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 20px;">
-                <strong>Invalid Book ID:</strong> Duplicate entry found! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php endif; ?>
 
                 </div>
    <div class="col-lg-4 ">

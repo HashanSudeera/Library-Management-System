@@ -100,6 +100,14 @@
 
             
                       <div class="border rounded-3 overflow-hidden shadow-sm mt-5">  
+
+                      <?php if (isset($_GET['status']) && $_GET['status'] == 'restricted'): ?>
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <strong>Action Denied!</strong> This book is currently being borrowed and cannot be deleted until the record is cleared.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
                             <table class="table table-hover mb-0 custom-header">
 
                                     <thead >
