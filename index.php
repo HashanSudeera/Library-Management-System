@@ -103,18 +103,6 @@ if(!defined('BASE_URL')){
 
                     </div>
 
-                    <div class="form-check mt-3">
-
-                        <input class="form-check-input"
-                               type="checkbox"
-                               id="remember">
-
-                        <label class="form-check-label" for="remember">
-                            Stay logged in
-                        </label>
-
-                    </div>
-
                     <button type="submit" class="btn btn-login" name="login">
                         SIGN IN
                     </button>

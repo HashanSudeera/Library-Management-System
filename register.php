@@ -130,6 +130,7 @@ if(!defined('BASE_URL')){
                                class="form-control"
                                placeholder="sudeera.perera@gmail.com"
                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                               title="Please enter a valid email address"
                                name="email"
                                required>
 
@@ -162,7 +163,10 @@ if(!defined('BASE_URL')){
                             <input type="password"
                                    class="form-control"
                                    placeholder="Password"
-                                   name="password">
+                                   pattern=".{8,}"
+                                   name="password"
+                                   title="Password must be at least 8 characters long"
+                                   required>
 
                         </div>
 
@@ -175,7 +179,10 @@ if(!defined('BASE_URL')){
                             <input type="password"
                                    class="form-control"
                                    placeholder="Confirm Password"
-                                   name="confirm_password">
+                                   name="confirm_password"
+                                   pattern=".{8,}"
+                                   title="Password must be at least 8 characters long"
+                                   required>
                         </div>
 
                     </div>
@@ -192,7 +199,7 @@ if(!defined('BASE_URL')){
                 <div class="bottom-text">
 
                     Already have an account?
-                    <a href="#">Login</a>
+                    <a href="index.php">Login</a>
 
                 </div>
 
