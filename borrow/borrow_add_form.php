@@ -30,6 +30,7 @@
                         <p class="mb-4" style="color: var(--brown-700);">Please ensure all member details are validated before processing.</p>
 
                         <hr class="mb-4" style="border-color: var(--brown-200);">
+                        <div id="error-container"></div>
 
                         <form action="../actions/borrow_actions.php" method="POST">
 
@@ -122,6 +123,90 @@
             };
         </script>
     <?php endif; ?>
+
+    <script>
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const errorCode = urlParams.get('error');
+
+            let shouldCleanUrl = false;
+
+            // --- 1. HANDLE SUCCESS POPUP ---
+            if (status === 'success') {
+                setTimeout(function() {
+                    alert('Data added successfully!');
+                }, 100);
+                shouldCleanUrl = true;
+            }
+
+            // --- 2. HANDLE ERROR MESSAGES ---
+            if (errorCode) {
+                let errorTitle = "Error!";
+                let errorMessage = "";
+
+                switch (errorCode) {
+                    case 'duplicate_borrow_id':
+                        errorTitle = "Already Exists!";
+                        errorMessage = "That Borrow ID has already been used. Please use a new one.";
+                        break;
+                    case 'book_not_found':
+                        errorTitle = "Not Found!";
+                        errorMessage = "That Book ID does not exist in the system.";
+                        break;
+                    case 'member_not_found':
+                        errorTitle = "Not Found!";
+                        errorMessage = "That Member ID does not exist in the system.";
+                        break;
+                    case 'invalid_borrow_id':
+                        errorTitle = "Invalid Format!";
+                        errorMessage = "Borrow ID must be 'BR' followed by 3 numbers.";
+                        break;
+                    case 'invalid_book_id':
+                        errorTitle = "Invalid Format!";
+                        errorMessage = "Book ID must be 'B' followed by 3 numbers.";
+                        break;
+                    case 'invalid_member_id':
+                        errorTitle = "Invalid Format!";
+                        errorMessage = "Member ID must be 'M' followed by 3 numbers.";
+                        break;
+                    default:
+                        errorTitle = "System Error!";
+                        errorMessage = "An unexpected error occurred. Please try again.";
+                }
+
+                const alertHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert" id="dynamicErrorAlert">
+                        <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
+                        <div>
+                            <strong>${errorTitle}</strong> ${errorMessage}
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('error-container').innerHTML = alertHTML;
+
+                // Auto-close error after 4 seconds
+                setTimeout(function() {
+                    let alertElement = document.getElementById('dynamicErrorAlert');
+                    if (alertElement) {
+                        let bsAlert = new bootstrap.Alert(alertElement);
+                        bsAlert.close();
+                    }
+                }, 4000);
+
+                shouldCleanUrl = true;
+            }
+
+            // --- 3. CLEAN UP URL ---
+            if (shouldCleanUrl) {
+                // Removes ?status= or ?error= so it doesn't repeat on refresh
+                setTimeout(function() {
+                    window.history.replaceState(null, null, window.location.pathname);
+                }, 200);
+            }
+        });
+    </script>
     
     
 

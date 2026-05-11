@@ -11,6 +11,14 @@ if (isset($_POST['add_borrow'])) {
     $member_id = $_POST['member_id'];
     $borrow_status = $_POST['borrow_status'];
 
+    //check borrow ID UNIQ
+    $check_borrow = "SELECT * FROM bookborrower WHERE borrow_id = '$borrow_id'";
+    $borrow_result = mysqli_query($conn, $check_borrow);
+    if (mysqli_num_rows($borrow_result) > 0) {
+        header("Location: ../borrow/borrow_add_form.php?error=duplicate_borrow_id");
+        exit();
+    }
+
     //Check book if exist
     $check_book = "SELECT * FROM book WHERE book_id = '$book_id'";
     $book_result = mysqli_query($conn, $check_book);
@@ -60,7 +68,7 @@ if (isset($_POST['update_borrow'])) {
 
     
     $date_modified = date('Y-m-d H:i:s');
-    
+
     $sql = "UPDATE bookborrower 
                 SET book_id = '$book_id', 
                     member_id = '$member_id', 
