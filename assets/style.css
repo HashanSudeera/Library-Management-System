@@ -98,9 +98,9 @@
 /*---------------------------------------------*/
 
 .custom-header thead th {
-    background-color: var(--brown-900);
+    background-color: var(--grey-400);
     color: white;
-    border-color: var(--brown-800); 
+    
 }
 
 .pagination .page-link {
@@ -121,6 +121,11 @@
     border-color: var(--grey-200);
 }
 
+.font_change{
+    font-family: "Asap Condensed", sans-serif;
+}
 
-
+.custom_card{
+    background-color: var(--brown-200);
+}
 
