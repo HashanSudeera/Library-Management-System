@@ -58,7 +58,7 @@ include '../actions/borrow_fetch.php';
                 <form action="borrow.php" method="GET" class="mb-4">
                 <div class="d-flex justify-content-between align-items-center bg-body-tertiary p-3 rounded-3 shadow-sm border border-opacity-10">
                     
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-center gap-2 font_change">
                         <i class="bi bi-filter-left fs-4 text-muted"></i>
                         <select name="filter_status" class="form-select border-0 bg-transparent shadow-none" onchange="this.form.submit()" style="cursor: pointer;">
                             <option value="All" <?php echo (isset($_GET['filter_status']) && $_GET['filter_status'] == 'All') ? 'selected' : ''; ?>>All Records</option>
@@ -67,7 +67,7 @@ include '../actions/borrow_fetch.php';
                         </select>
                     </div>
 
-                    <div class="input-group w-auto bg-body rounded-pill border px-2 py-1 align-items-center">
+                    <div class="input-group w-auto bg-body rounded-pill border px-2 py-1 align-items-center font_change">
                         <input type="text" name="search" class="form-control border-0 bg-transparent shadow-none" placeholder="Search records..." 
                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
                         <button class="btn border-0 text-muted" type="submit">
@@ -80,7 +80,7 @@ include '../actions/borrow_fetch.php';
 
                 <div class="table-responsive px-2">
                     <table class="table table-hover align-middle border-0 text-center mb-0">
-                        <thead class="custom-table-header">
+                        <thead class="custom-table-header font_change">
                             <tr>
                                 <th class="py-3 px-4 rounded-start border-0 fw-medium">Borrow ID</th>
                                 <th class="py-3 border-0 fw-medium text-start">Book Name</th>
@@ -108,13 +108,13 @@ include '../actions/borrow_fetch.php';
                                     }
 
                                     echo "<tr>";
-                                    echo "  <td class='px-4 py-3 border-bottom border-opacity-10'>{$row['borrow_id']}</td>";
-                                    echo "  <td class='text-start border-bottom border-opacity-10'>{$row['book_name']}</td>";
-                                    echo "  <td class='text-start border-bottom border-opacity-10'>{$full_member_name}</td>";
+                                    echo "  <td class='px-4 py-3 border-bottom border-opacity-10 font_change'>{$row['borrow_id']}</td>";
+                                    echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$row['book_name']}</td>";
+                                    echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$full_member_name}</td>";
                                     echo "  <td class='border-bottom border-opacity-10'>
                                             <span class='badge rounded-pill {$badge_class} px-3 py-2 fw-medium'>{$row['borrow_status']}</span>
                                             </td>";
-                                    echo "  <td class='border-bottom border-opacity-10'>{$formatted_date}</td>";
+                                    echo "  <td class='border-bottom border-opacity-10 font_change'>{$formatted_date}</td>";
                                     echo "  <td class='text-center border-bottom border-opacity-10'>
                                                 <a href='borrow_edit.php?id={$row['borrow_id']}' class='text-muted text-decoration-none me-3'>
                                                 <i class='bi bi-pencil-square fs-5'></i>

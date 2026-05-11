@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
 <body>
     <?php include '../includes/top_navbar.php' ?>
 
-    <div class="d-flex">
+    <div class="d-flex font_change">
 
         <?php include '../includes/sidebar.php' ?>
 
@@ -52,6 +52,8 @@ if (isset($_GET['id'])) {
                         <p class="mb-4" style="color: var(--brown-700);">Edit the details for this borrowing transaction below.</p>
 
                         <hr class="mb-4" style="border-color: var(--brown-200);">
+
+                        <div id="error-container"></div>
 
                         <form action="../actions/borrow_actions.php" method="POST">
 
@@ -149,6 +151,80 @@ if (isset($_GET['id'])) {
             });
         </script>
     <?php endif; ?>
+    <script>
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const errorCode = urlParams.get('error');
+            
+            // Grab the ID so we don't accidentally delete it!
+            const recordId = urlParams.get('id'); 
+
+            let shouldCleanUrl = false;
+
+            // --- 2. HANDLE ERROR MESSAGES ---
+            if (errorCode) {
+                let errorTitle = "Error!";
+                let errorMessage = "";
+
+                switch (errorCode) {
+                    case 'book_not_found':
+                        errorTitle = "Not Found!";
+                        errorMessage = "That Book ID does not exist in the system.";
+                        break;
+                    case 'member_not_found':
+                        errorTitle = "Not Found!";
+                        errorMessage = "That Member ID does not exist in the system.";
+                        break;
+                    case 'invalid_book_id':
+                        errorTitle = "Invalid Format!";
+                        errorMessage = "Book ID must be 'B' followed by 3 numbers.";
+                        break;
+                    case 'invalid_member_id':
+                        errorTitle = "Invalid Format!";
+                        errorMessage = "Member ID must be 'M' followed by 3 numbers.";
+                        break;
+                    default:
+                        errorTitle = "System Error!";
+                        errorMessage = "An unexpected error occurred. Please try again.";
+                }
+
+                const alertHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert" id="dynamicErrorAlert">
+                        <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
+                        <div>
+                            <strong>${errorTitle}</strong> ${errorMessage}
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('error-container').innerHTML = alertHTML;
+
+                setTimeout(function() {
+                    let alertElement = document.getElementById('dynamicErrorAlert');
+                    if (alertElement) {
+                        let bsAlert = new bootstrap.Alert(alertElement);
+                        bsAlert.close();
+                    }
+                }, 4000);
+
+                shouldCleanUrl = true;
+            }
+
+            if (shouldCleanUrl) {
+                setTimeout(function() {
+                    let currentPath = window.location.pathname;
+                    
+                    // If an ID exists, keep it in the URL. Otherwise, clean completely.
+                    if (recordId) {
+                        window.history.replaceState(null, null, currentPath + "?id=" + recordId);
+                    } else {
+                        window.history.replaceState(null, null, currentPath);
+                    }
+                }, 200);
+            }
+        });
+    </script>
 
 </body>
 </html>

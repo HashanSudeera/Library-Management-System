@@ -7,7 +7,7 @@
     
     <?php include '../includes/top_navbar.php' ?>
 
-    <div class="d-flex">
+    <div class="d-flex font_change">
 
         <?php include '../includes/sidebar.php' ?>
 

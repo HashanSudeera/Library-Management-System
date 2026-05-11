@@ -38,7 +38,8 @@ if (!empty($search_query)) {
     $table_sql .= " AND (b.book_name LIKE '%$search_query%' 
                       OR m.first_name LIKE '%$search_query%' 
                       OR m.last_name LIKE '%$search_query%'
-                      OR bb.borrow_id LIKE '%$search_query%')";
+                      OR bb.borrow_id LIKE '%$search_query%'
+                      OR bb.borrower_date_modified LIKE '%$search_query%')";
 }
 
 // 5. Add the final sort order

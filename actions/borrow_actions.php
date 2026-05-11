@@ -64,7 +64,7 @@ if (isset($_POST['update_borrow'])) {
     $borrow_status = $_POST['borrow_status'];
 
     //error header path
-    $error_redirect = "Location: borrow_update.php?id=$borrow_id&error=";
+    $error_redirect = "Location: ../borrow/borrow_edit.php?id=$borrow_id&error=";
 
     
     $date_modified = date('Y-m-d H:i:s');
