@@ -141,3 +141,74 @@ if(isset($_POST['login'])){
     }
 }
 ?>
+<?php
+session_start();
+include '../includes/db_config.php';
+
+if (isset($_POST['update'])) {
+    $current_sid = $_SESSION['user_id'];
+    
+    // Collect data
+
+    $new_user_id = trim($_POST['user_id']); 
+    $first_name  = trim($_POST['first_name']);
+    $last_name   = trim($_POST['last_name']);
+    $email       = trim($_POST['email']);
+    $username    = trim($_POST['username']);
+    $password    = $_POST['password'];
+    $confirm     = $_POST['confirm_password'];
+
+    //Check that data has already taken by someone
+    $check_sql = "SELECT * FROM user WHERE 
+                 (user_id='$new_user_id' OR email='$email' OR username='$username') 
+                 AND user_id != '$current_sid'";
+    
+    $check_result = mysqli_query($conn, $check_sql);
+
+    if (mysqli_num_rows($check_result) > 0) {      
+
+        header("Location: ../user/user_update.php?status=exists"); // process stop if the data already exixts
+        exit();
+    }
+
+    if (!empty($password)) {
+
+        // If password changed
+
+        if ($password !== $confirm) {
+            header("Location: ../user/user_update.php?status=mismatch");
+            exit();
+        }
+        
+        $encrypt_password = md5($password);
+        $sql = "UPDATE user SET 
+                user_id='$new_user_id',
+                first_name='$first_name', 
+                last_name='$last_name', 
+                email='$email', 
+                username='$username', 
+                password='$encrypt_password' 
+                WHERE user_id='$current_sid'";
+    } else {
+        // If updating profile data only
+
+        $sql = "UPDATE user SET 
+                user_id='$new_user_id',
+                first_name='$first_name', 
+                last_name='$last_name', 
+                email='$email', 
+                username='$username' 
+                WHERE user_id='$current_sid'";
+    }
+
+    if (mysqli_query($conn, $sql)) {
+   
+        $_SESSION['user_id'] = $new_user_id;
+        
+        header("Location: ../user/user_profile.php?status=success");
+    } else {
+        header("Location: ../user/user_update.php?status=failed");
+    }
+    exit();
+}
+?>

@@ -64,7 +64,8 @@ if(!defined('BASE_URL')){
 
                             <?php if ($error_msg != ""): ?>
                                 <p class="text-danger fw-bold mb-3">
-                                    <i class="bi bi-exclamation-circle-fill me-1"></i> <?php echo $error_msg; ?>
+                                    <i class="bi bi-exclamation-circle-fill me-1"></i> 
+                                    <?php echo $error_msg; ?>
                                 </p>
                             <?php endif; ?>
                         <?php endif; ?>

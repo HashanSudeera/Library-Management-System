@@ -37,7 +37,14 @@ $user = mysqli_fetch_assoc($result);
                 </h2>
 
                 <p class="profile-subtitle">
-                    Modify existing archival record and security credentials for library patronage.
+                    User Can view their profile information.
+                    <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
+                            <div class="container mt-3 text-center">
+                                <p class="text-success fw-bold">
+                                    <i class="bi bi-check-lg"></i> Update Sucessfull.
+                                </p>
+                            </div>
+                    <?php endif; ?>
                 </p>
 
                 <h6 class="section-title mt-4 mb-4">
@@ -131,8 +138,8 @@ $user = mysqli_fetch_assoc($result);
 
                 <div class="d-flex justify-content-end gap-3 mt-4">
 
-                    <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Delete Account</a>
-                    <a href="#" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Edit User Details</a>
+                    <a href="" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Delete Account</a>
+                    <a href="./user_update.php" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Edit User Details</a>
                 </div>
 
             </div>
