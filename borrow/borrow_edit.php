@@ -29,13 +29,13 @@ if (isset($_GET['id'])) {
 <body>
     <?php include '../includes/top_navbar.php' ?>
 
-    <div class="d-flex font_change">
+    <div class="d-flex font_change" style="min-height: 100vh;">
 
         <?php include '../includes/sidebar.php' ?>
 
-        <div class="main-content flex-grow-1 p-4">
+        <div class="main-content flex-grow-1 d-flex flex-column p-4">
 
-            <nav aria-label="breadcrumb"  class="font_change">
+            <nav aria-label="breadcrumb" class="font_change">
                 <ol class="breadcrumb mb-4 fs-6">
                     <li class="breadcrumb-item text-muted">Borrow</li>
                     <li class="breadcrumb-item text-muted" aria-current="page">Borrowing Records</li>
@@ -103,7 +103,7 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="custom-guide-card p-4 rounded-3 shadow-sm h-100">
+                    <div class="custom-guide-card p-4 rounded-3 shadow-sm h-50">
                         <div class="d-flex align-items-center mb-4">
                             <i class="bi bi-info-circle fs-4 me-2" style="color: var(--blue-800);"></i>
                             <h4 class="fw-bold mb-0" style="color: var(--blue-900);">Update Guidelines</h4>
@@ -133,10 +133,12 @@ if (isset($_GET['id'])) {
                 </div>
 
             </div>
-        </div>
-    </div>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'updated'): ?>
+            <div class="mt-2 w-100">
+                <?php include '../includes/footer_banner.php' ?>
+            </div>
+
+        </div> </div> <?php if (isset($_GET['status']) && $_GET['status'] == 'updated'): ?>
         <script>
             window.addEventListener('load', function() {
                 setTimeout(function() {

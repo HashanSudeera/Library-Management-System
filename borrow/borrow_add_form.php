@@ -7,13 +7,13 @@
     
     <?php include '../includes/top_navbar.php' ?>
 
-    <div class="d-flex font_change">
+    <div class="d-flex font_change" style="min-height: 100vh;">
 
         <?php include '../includes/sidebar.php' ?>
 
-        <div class="main-content flex-grow-1 p-4">
+        <div class="main-content flex-grow-1 d-flex flex-column p-4">
 
-            <nav aria-label="breadcrumb"  class="font_change">
+            <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-4 fs-6">
                     <li class="breadcrumb-item text-muted">Borrow</li>
                     <li class="breadcrumb-item text-muted" aria-current="page">Borrowing Records</li>
@@ -25,7 +25,6 @@
 
                 <div class="col-lg-8 mb-4">
                     <div class="custom-form-card p-5 rounded-3 shadow-sm">
-
                         <h2 class="fw-bold mb-1" style="color: var(--brown-900);">Add New Borrow Record</h2>
                         <p class="mb-4" style="color: var(--brown-700);">Please ensure all member details are validated before processing.</p>
 
@@ -33,7 +32,6 @@
                         <div id="error-container"></div>
 
                         <form action="../actions/borrow_actions.php" method="POST">
-
                             <div class="mb-4">
                                 <label for="borrow_id" class="form-label fw-medium" style="color: var(--brown-900);">Borrow ID</label>
                                 <input type="text" class="form-control custom-input py-2" id="borrow_id" name="borrow_id" placeholder='Borrow ID format "BR001"' pattern="^BR[0-9]{3}$" title="Format must be 'BR' followed by 3 numbers (e.g., BR001)" required>
@@ -44,7 +42,6 @@
                                     <label for="book_id" class="form-label fw-medium" style="color: var(--brown-900);">Book ID</label>
                                     <input type="text" class="form-control custom-input py-2" id="book_id" name="book_id" placeholder='Book ID format "B001"' pattern="^B[0-9]{3}$" title="Format must be 'B' followed by 3 numbers (e.g., B001)" required>
                                 </div>
-
                                 <div class="col-md-6">
                                     <label for="member_id" class="form-label fw-medium" style="color: var(--brown-900);">Member ID</label>
                                     <input type="text" class="form-control custom-input py-2" id="member_id" name="member_id" placeholder='Member ID format "M001"' pattern="^M[0-9]{3}$" title="Format must be 'M' followed by 3 numbers (e.g., M001)" required>
@@ -56,15 +53,11 @@
                                 <div class="d-flex gap-5">
                                     <div class="form-check custom-radio">
                                         <input class="form-check-input" type="radio" name="borrow_status" id="status_borrowed" value="Borrowed" checked>
-                                        <label class="form-check-label" style="color: var(--brown-800);" for="status_borrowed">
-                                            Borrowed
-                                        </label>
+                                        <label class="form-check-label" style="color: var(--brown-800);" for="status_borrowed">Borrowed</label>
                                     </div>
                                     <div class="form-check custom-radio">
                                         <input class="form-check-input" type="radio" name="borrow_status" id="status_available" value="Available">
-                                        <label class="form-check-label" style="color: var(--brown-800);" for="status_available">
-                                            Available
-                                        </label>
+                                        <label class="form-check-label" style="color: var(--brown-800);" for="status_available">Available</label>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +66,6 @@
                                 <a href="borrow.php" class="btn btn-cancel px-4 py-2 fw-medium">Cancel</a>
                                 <button type="submit" class="btn btn-add px-4 py-2 fw-medium" name="add_borrow">Add Record</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
@@ -84,21 +76,18 @@
                             <i class="bi bi-info-circle fs-4 me-2" style="color: var(--blue-800);"></i>
                             <h4 class="fw-bold mb-0" style="color: var(--blue-900);">Filing Guidelines</h4>
                         </div>
-
                         <div class="guideline-item mb-4">
                             <h6 class="fw-bold mb-1" style="color: var(--blue-800);">Borrow ID Validation</h6>
                             <ul class="mb-0 ps-3" style="color: var(--blue-800); font-size: 0.9rem;">
                                 <li>Format: Must start with 'BR' followed by numbers (e.g., BR001).</li>
                             </ul>
                         </div>
-
                         <div class="guideline-item mb-4">
                             <h6 class="fw-bold mb-1" style="color: var(--blue-800);">Book ID Validation</h6>
                             <ul class="mb-0 ps-3" style="color: var(--blue-800); font-size: 0.9rem;">
                                 <li>Format: Must start with 'B' followed by numbers (e.g., B001).</li>
                             </ul>
                         </div>
-
                         <div class="guideline-item">
                             <h6 class="fw-bold mb-1" style="color: var(--blue-800);">Member ID Validation</h6>
                             <ul class="mb-0 ps-3" style="color: var(--blue-800); font-size: 0.9rem;">
@@ -109,9 +98,10 @@
                 </div>
 
             </div>
+             <div class="mt-2 w-100">
+                <?php include '../includes/footer_banner.php' ?>
+            </div>
         </div>
-    </div>
-
     <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
         <script>
             window.onload = function() {
