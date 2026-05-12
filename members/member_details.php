@@ -56,20 +56,20 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
 
             <div class="card border-0 shadow-sm bg-body-tertiary p-4 rounded-4">
 
-                <form action="borrow.php" method="GET" class="mb-4">
-                <div class="d-flex justify-content-between align-items-center bg-body-tertiary p-3 rounded-3 shadow-sm border border-opacity-10">
-                    
-                    
-                    <div class="input-group w-auto bg-body rounded-pill border px-2 py-1 align-items-center font_change">
-                        <input type="text" name="search" class="form-control border-0 bg-transparent shadow-none" placeholder="Search records..." 
-                               value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-                        <button class="btn border-0 text-muted" type="submit">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </div>
+                <form action="member_details.php" method="GET" class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center bg-body-tertiary p-3 rounded-3 shadow-sm border border-opacity-10">
 
-                </div>
-            </form>
+
+                        <div class="input-group w-auto bg-body rounded-pill border px-2 py-1 align-items-center font_change">
+                            <input type="text" name="search" class="form-control border-0 bg-transparent shadow-none" placeholder="Search records..."
+                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                            <button class="btn border-0 text-muted" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
 
                 <div class="table-responsive px-2">
                     <table class="table table-hover align-middle border-0 text-center mb-0">
@@ -86,11 +86,26 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
                         <tbody class="border-top-0">
 
                             <?php
-                $sql = "SELECT* FROM member";
-                $result = $conn->query($sql);
+                            // 1. Get the search term from the URL
+                            $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 
-                if($result->num_rows > 0){
-                    while($row = $result->fetch_assoc()){
+                            // 2. Modify the SQL query to filter results if search is not empty
+                            if (!empty($search)) {
+                                // Searches across ID, First Name, Last Name, and Email
+                                $sql = "SELECT * FROM member WHERE 
+                                     member_id LIKE '%$search%' OR 
+                                     first_name LIKE '%$search%' OR 
+                                     last_name LIKE '%$search%' OR 
+                                     email LIKE '%$search%'";
+                            } else {
+                                // Default query if no search is performed
+                                $sql = "SELECT * FROM member";
+                            }
+
+                            $result = $conn->query($sql);
+
+                            if ($result && $result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
                                     echo "  <td class='px-4 py-3 border-bottom border-opacity-10 font_change'>{$row['member_id']}</td>";
                                     echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$row['first_name']}</td>";
@@ -98,21 +113,21 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
                                     echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$row['email']}</td>";
                                     echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$row['birthday']}</td>";
                                     echo "  <td class='text-center border-bottom border-opacity-10'>
-                                                <a href='edit_member.php?id={$row['member_id']}' class='text-muted text-decoration-none me-3'>
-                                                <i class='bi bi-pencil-square fs-5'></i>
-                                                </a> 
-
-                                                <a href='../actions/member_action.php?delete_id={$row['member_id']}' 
-                                                    class='text-muted text-decoration-none' 
-                                                    onclick=\"return confirm('Are you sure you want to delete this record? This action cannot be undone.');\">
-                                                <i class='bi bi-trash fs-5'></i>
-                                                </a>
-                                            </td>";
+                    <a href='edit_member.php?id={$row['member_id']}' class='text-muted text-decoration-none me-3'>
+                        <i class='bi bi-pencil-square fs-5'></i>
+                    </a> 
+                    <a href='../actions/member_action.php?delete_id={$row['member_id']}' 
+                        class='text-muted text-decoration-none' 
+                        onclick=\"return confirm('Are you sure you want to delete this record?');\">
+                        <i class='bi bi-trash fs-5'></i>
+                    </a>
+                </td>";
                                     echo "</tr>";
-                    }
-                }
-
-                ?>
+                                }
+                            } else {
+                                echo "<tr><td colspan='6' class='py-4 text-muted'>No members found matching your search.</td></tr>";
+                            }
+                            ?>
 
                         </tbody>
                     </table>

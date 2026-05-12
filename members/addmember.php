@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end gap-3 mt-2">
-                                <a href="borrow.php" class="btn btn-cancel px-4 py-2 fw-medium">Cancel</a>
+                                <a href="member_details.php" class="btn btn-cancel px-4 py-2 fw-medium">Cancel</a>
                                 <button type="submit" class="btn btn-add px-4 py-2 fw-medium" name="add_member">Add Member</button>
                             </div>
                         </form>
@@ -99,7 +99,7 @@
             let shouldCleanUrl = false;
 
             // success alert
-            if (status === 'Member Added Successfully') {
+            if (status === "success") {
                 setTimeout(function() {
                     alert('Data added successfully!');
                     window.location.href = '../members/member_details.php';

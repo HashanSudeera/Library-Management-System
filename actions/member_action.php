@@ -20,7 +20,7 @@ if (isset($_POST['add_member'])) {
     $stmt->bind_param("sssss", $member_id, $first_name, $last_name, $email, $birthday);
 
     if ($stmt->execute()) {
-        header("Location: ../members/member_details.php?msg=Member Added Successfully");
+        header("Location: ../members/addmember.php?status=success");
     } else {
         echo "Error: " . $stmt->error;
     }

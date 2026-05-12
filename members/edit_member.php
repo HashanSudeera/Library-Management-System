@@ -133,24 +133,7 @@ if (isset($_GET['id'])) {
         </script>
     <?php endif; ?>
 
-    <script>
-        // JS logic for error handling remains similar, just update error cases if needed
-        window.addEventListener('load', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const errorCode = urlParams.get('error');
-            const recordId = urlParams.get('id'); 
-
-            if (errorCode) {
-                let errorMessage = errorCode === 'email_exists' ? "This email is already registered." : "An error occurred while updating.";
-                const alertHTML = `
-                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert" id="dynamicErrorAlert">
-                        <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
-                        <div><strong>Error!</strong> ${errorMessage}</div>
-                    </div>`;
-                document.getElementById('error-container').innerHTML = alertHTML;
-            }
-        });
-    </script>
+  
 
 </body>
 </html>
