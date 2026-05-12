@@ -38,11 +38,12 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
                     </ol>
                 </nav>
                 <h2 class="fw-bold m-0">Category list</h2>
-                <p class="text-muted small">Recently added categories for quick review and management.</p>
             </div>
+
             <div class="col-auto">
                 <a href="add_category.php">
                     <button class="btn text-white px-4 py-2" style="background-color: #4a4538;">
+                        <i class="bi bi-plus-circle me-2"></i>
                         Add New Category
                     </button>
                 </a>
@@ -83,16 +84,17 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
             <?php endif; ?>
         <?php endif; ?>
 
-        <div class="row g-3 mb-4">
+        <div class="row g-3 mb-4 ">
             <div class="col-md-3">
-                <div class="card border-0 shadow-sm p-3 position-relative">
+                <div class="card custom_card border-0 shadow-sm w-180 p-2 rounded-3">
                     <span class="text-muted small fw-bold">TOTAL CATEGORIES</span>
                     <h2 class="fw-bold mb-0"><?php echo $total_cats; ?></h2>
                 </div>
             </div>
         </div>
+        
 
-        <div class="card border-0 shadow-sm">
+        <div class="card border-0 shadow-sm bg-body-tertiary p-4 rounded-4">
             <div class="card-body p-0">
                 <form method="GET" action="category_list.php">
                     <div class="d-flex justify-content-between align-items-center p-3 bg-white border-bottom">
@@ -108,7 +110,8 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
                 </form>
 
                 <div class="table-responsive">
-                    <table class="table align-middle mb-0">
+                    <table class="table table-hover mb-0 custom-header">
+
                         <thead class="bg-light text-muted small text-uppercase">
                             <tr>
                                 <th class="ps-4">Category Name</th>

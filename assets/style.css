@@ -242,3 +242,13 @@
     color: #dc3545;
     /* Red for delete */
 }
+
+.custom_card{
+    background-color: var(--brown-200);
+}
+
+.custom-header thead th {
+    background-color: var(--grey-400);
+    color: white;
+
+}
