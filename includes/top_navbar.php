@@ -8,6 +8,11 @@ if(!defined('BASE_URL')){
 
 ?>
 
+if(!defined('BASE_URL')){
+    define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
+}
+
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom px-2 py-1">
         <div class="container-fluid">
             <div class="logo-wrapper">

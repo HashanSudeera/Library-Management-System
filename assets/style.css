@@ -318,6 +318,37 @@
     color: white;
 }
 
+.custom-header thead th {
+    background-color: var(--grey-400);
+    color: white;
+    
+}
+
+.pagination .page-link {
+    color: var(--brown-900); 
+    background-color: var(--brown-100);
+    border: 3px solid var(--brown-200);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--brown-800) ; 
+    border-color: var(--brown-100);
+    color: #ffffff !important; 
+}
+
+.pagination .page-link:hover {
+    background-color: var(--brown-400);
+    color: var(--brown-900);
+    border-color: var(--grey-200);
+}
+
+.font_change{
+    font-family: "Asap Condensed", sans-serif;
+}
+
+.custom_card{
+    background-color: var(--brown-200);
+}
 .btn-cancel {
     background-color: transparent;
     border: 1px solid #34495e;
