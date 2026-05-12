@@ -25,14 +25,14 @@ if(!defined('BASE_URL')){
         </li>
 
         <li class="nav-item mb-1">
-            <a href="category_list.php" class="nav-link custom-nav-link d-flex align-items-center gap-3 py-2 px-4 <?php echo ($current_page == 'category_list.php' || $current_page == 'edit_category.php' || $current_page == 'add_category.php') ? 'active-tab' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>categories/category_list.php" class="nav-link custom-nav-link d-flex align-items-center gap-3 py-2 px-4 <?php echo ($current_page == 'category_list.php' || $current_page == 'edit_category.php' || $current_page == 'add_category.php') ? 'active-tab' : ''; ?>">
                 <i class="bi bi-diagram-3 fs-5"></i>
                 Categories
             </a>
         </li>
 
         <li class="nav-item mb-1">
-            <a href="<?php echo BASE_URL; ?>member/member_details.php" class="nav-link custom-nav-link d-flex align-items-center gap-3 py-2 px-4 <?php echo ($current_page == 'addmember.php' || $current_page == 'member_details.php' || $current_page == 'member_edit.php') ? 'active-tab' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>members/member_details.php" class="nav-link custom-nav-link d-flex align-items-center gap-3 py-2 px-4 <?php echo ($current_page == 'addmember.php' || $current_page == 'member_details.php' || $current_page == 'member_edit.php') ? 'active-tab' : ''; ?>">
                 <i class="bi bi-people fs-5"></i>
                 Members
             </a>

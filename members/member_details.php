@@ -138,5 +138,13 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
     </div>
 
 </body>
+<?php if (isset($_GET['status']) && $_GET['status'] == 'deleted'): ?>
+    <script>
+        setTimeout(function() {
+            alert('Data deleted successfully!');
+            window.history.replaceState(null, null, window.location.pathname);
+        }, 300); 
+    </script>
+    <?php endif; ?>
 
 </html>

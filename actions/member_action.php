@@ -54,7 +54,7 @@ if (isset($_GET['delete_id'])) {
     $stmt->bind_param("s", $member_id);
 
     if ($stmt->execute()) {
-        header("Location: ../members/member_list.php?msg=Member Deleted Successfully");
+        header("Location: ../members/member_list.php?status=deleted");
     } else {
         echo "Error: " . $stmt->error;
     }

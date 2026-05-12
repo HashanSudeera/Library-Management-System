@@ -349,13 +349,7 @@
     border-color: var(--grey-200);
 }
 
-.font_change{
-    font-family: "Asap Condensed", sans-serif;
-}
 
-.custom_card{
-    background-color: var(--brown-200);
-}
 .btn-cancel {
     background-color: transparent;
     border: 1px solid #34495e;
@@ -425,54 +419,39 @@
 }
 
 /*----------------banner--------------*/
-.quote-banner {
-        /* Matching the beige background from your image */
-        background-color: #e5d8c1; 
-        border-radius: 8px;
-        min-height: 160px; /* Prevents the banner from jumping when quotes change length */
-    }
+.quote-banner {  
+    background-color: #e5d8c1; 
+    border-radius: 8px;
+    min-height: 160px; 
+}
     
-    #quote-wrapper {
-        /* The transition effect for smooth fading */
-        transition: opacity 0.5s ease-in-out;
-        opacity: 1;
-    }
-
-    .quote-image {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        /* Optional: Makes the images black and white like the Einstein photo */
-        filter: grayscale(100%); 
-        border-radius: 10px;
-    }
-
-    .quote-text {
-        color: #2c2c2c; /* Dark text for readability on beige */
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 1.3;
-    }
-.font_change{
-    font-family: "Asap Condensed", sans-serif;
+#quote-wrapper {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
 }
 
-.custom_card{
-    background-color: var(--blue-600);
+.quote-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    filter: grayscale(100%); 
+    border-radius: 10px;
 }
 
-    .quote-author {
-        color: #5a5a5a;
-        font-size: 0.9rem;
-    }
-
-.font_change{
-    font-family: "Asap Condensed", sans-serif;
+.quote-text {
+    color: #2c2c2c; 
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.3;
 }
 
-.custom_card{
-    background-color: var(--brown-200);
+
+.quote-author {
+    color: #5a5a5a;
+    font-size: 0.9rem;
 }
+
+
 .custom_width{
     width: 500px;
 }

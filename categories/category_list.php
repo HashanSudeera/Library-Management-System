@@ -123,11 +123,15 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
                         <tbody>
                             <?php
 
-                            $query = "SELECT * FROM bookcategory $where_clause ORDER BY date_modified DESC";
+                            $query = "SELECT * FROM bookcategory $where_clause ORDER BY date_modified ASC";
                             $result = mysqli_query($conn, $query);
+
+                            
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+
+                                    $formatted_date = date('d/m/Y', strtotime($row['date_modified']));
                             ?>
                             <tr>
                                 <td class="ps-4 fw-bold py-3">
@@ -135,7 +139,7 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
                                     <?= htmlspecialchars($row['category_Name']) ?>
                                 </td>
                                 <td class="text-primary fw-bold"><?= htmlspecialchars($row['category_id']) ?></td>
-                                <td class="text-muted small"><?= htmlspecialchars($row['date_modified']) ?></td>
+                                <td class="text-muted small"><?=  $formatted_date ?></td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center align-items-center gap-3">
                                         <a href="edit_category.php?id=<?= urlencode($row['category_id']) ?>&name=<?= urlencode($row['category_Name']) ?>" 

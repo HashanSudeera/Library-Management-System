@@ -8,15 +8,10 @@ if(!defined('BASE_URL')){
 
 ?>
 
-if(!defined('BASE_URL')){
-    define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
-}
-
-?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom px-2 py-1">
         <div class="container-fluid">
             <div class="logo-wrapper">
-                <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="dashboard.php">
+                <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="<?php echo BASE_URL; ?>dashboard.php">
 
                     <img src="<?php echo BASE_URL; ?>assets/img/UOC_logo.png" alt="Smart Library Logo" class="me-2" style="width: 45px; height: auto;">
 
@@ -41,9 +36,9 @@ if(!defined('BASE_URL')){
                             <?php  echo "{$username}" ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./user/user_profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>user/user_profile.php">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true">Log Out</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true" style="background-color:#f59090"><b>Log Out</b></a></li>
                             
                         </ul>
                     </li>
