@@ -233,3 +233,6 @@
 .custom_card{
     background-color: var(--brown-200);
 }
+.custom_width{
+    width: 500px;
+}

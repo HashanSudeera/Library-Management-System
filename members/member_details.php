@@ -2,7 +2,7 @@
 include '../includes/db_config.php';
 ?>
 <?php
-// Query to count total rows in the member table
+// count total rows in the member table
 $count_sql = "SELECT COUNT(*) as total FROM member";
 $count_result = $conn->query($count_sql);
 $total_members = 0;
@@ -35,7 +35,7 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
             <div class="row align-items-center mb-4">
 
                 <div class="col-md-8 d-flex gap-4 font_change">
-                    <div class="card custom_card border-0 shadow-sm flex-fill p-2 rounded-3">
+                    <div class="card custom_card border-0 shadow-sm flex-fill p-2 rounded-3 custom_width">
                         <div class="card-body py-2 ">
                             <div class="d-flex align-items-center mb-1">
                                 <i class="bi bi-folder2-open text-muted me-2 fs-5"></i>
@@ -86,10 +86,10 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
                         <tbody class="border-top-0">
 
                             <?php
-                            // 1. Get the search term from the URL
+                            // Get the search term from the URL
                             $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 
-                            // 2. Modify the SQL query to filter results if search is not empty
+                            // filter results if search is not empty
                             if (!empty($search)) {
                                 // Searches across ID, First Name, Last Name, and Email
                                 $sql = "SELECT * FROM member WHERE 

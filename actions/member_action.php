@@ -1,7 +1,7 @@
 <?php
 include '../includes/db_config.php';
 
-// --- ADD MEMBER ---
+// add member
 if (isset($_POST['add_member'])) {
     $member_id = $_POST['member_id'];
     $first_name = $_POST['first_name'];
@@ -28,9 +28,9 @@ if (isset($_POST['add_member'])) {
 
 }
 
-// --- UPDATE MEMBER ---
+//update member
 if (isset($_POST['update_member'])) {
-    $member_id = $_POST['member_id']; // This should be a hidden input in your edit form
+    $member_id = $_POST['member_id'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
@@ -46,7 +46,7 @@ if (isset($_POST['update_member'])) {
     }
 }
 
-// --- DELETE MEMBER ---
+//delete member
 if (isset($_GET['delete_id'])) {
     $member_id = $_GET['delete_id'];
 

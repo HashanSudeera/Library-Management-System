@@ -1,11 +1,11 @@
 <?php
-// 1. Include database connection
+// database connection
 include '../includes/db_config.php';
 
 if (isset($_GET['id'])) {
     $member_id = mysqli_real_escape_string($conn, $_GET['id']);
     
-    // Updated SQL to fetch from member table
+    //  fetch data from member table
     $sql = "SELECT * FROM member WHERE member_id = '$member_id'";
     $result = mysqli_query($conn, $sql);
     
