@@ -1,10 +1,23 @@
 <?php 
 include '../includes/db_config.php'; 
 
+$search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
+$where_clause = "";
+if ($search != '') {
+    // This filters the results based on what you type
+    $where_clause = " WHERE 
+                      category_Name LIKE '%$search%' ";
+}
+
+
+
+
+
 // Fetch total count for the stat card
 $count_query = "SELECT COUNT(*) as total FROM bookcategory";
 $count_result = mysqli_query($conn, $count_query);
 $total_cats = mysqli_fetch_assoc($count_result)['total'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,12 +94,18 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
 
         <div class="card border-0 shadow-sm">
             <div class="card-body p-0">
-                <div class="d-flex justify-content-between align-items-center p-3 bg-white border-bottom">
+                <form method="GET" action="category_list.php">
+                    <div class="d-flex justify-content-between align-items-center p-3 bg-white border-bottom">
 
-                    <div class="search-box">
-                        <input type="text" class="form-control form-control-sm" placeholder="Search category..." style="width: 250px; background-color: #f8f9fa;">
+                        <div class="input-group w-auto bg-body rounded-pill border px-2 py-1 align-items-center font_change">
+                            <input type="text" name="search" class="form-control border-0 bg-transparent shadow-none" placeholder="Search records..." 
+                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                            <button class="btn border-0 text-muted" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
 
                 <div class="table-responsive">
                     <table class="table align-middle mb-0">
@@ -100,7 +119,8 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM bookcategory ORDER BY date_modified DESC";
+
+                            $query = "SELECT * FROM bookcategory $where_clause ORDER BY date_modified DESC";
                             $result = mysqli_query($conn, $query);
 
                             if (mysqli_num_rows($result) > 0) {
