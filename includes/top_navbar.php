@@ -4,7 +4,7 @@
             <div class="logo-wrapper">
                 <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="dashboard.php">
 
-                    <img src="./assets/img/UOC_logo.png" alt="Smart Library Logo" class="me-2" style="width: 45px; height: auto;">
+                    <img src="../assets/img/UOC_logo.png" alt="Smart Library Logo" class="me-2" style="width: 45px; height: auto;">
 
                     <div class="d-flex flex-column justify-content-center align-items-start">
                         <span class="brand-title">SMART LIBRARY</span>

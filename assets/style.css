@@ -2,104 +2,243 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
-  /* Brown / Gold Shades */
-  --brown-50: #f9f6f0;
-  --brown-100: #ece3d2;
-  --brown-200: #e3d6bc;
-  --brown-300: #d6c39d;
-  --brown-400: #ceb78a;
-  --brown-500: #c2a56d;
-  --brown-600: #b19663;
-  --brown-700: #8a754d;
-  --brown-800: #6b5b3c;
-  --brown-900: #51452e;
+    /* Brown / Gold Shades */
+    --brown-50: #f9f6f0;
+    --brown-100: #ece3d2;
+    --brown-200: #e3d6bc;
+    --brown-300: #d6c39d;
+    --brown-400: #ceb78a;
+    --brown-500: #c2a56d;
+    --brown-600: #b19663;
+    --brown-700: #8a754d;
+    --brown-800: #6b5b3c;
+    --brown-900: #51452e;
 
-  /* Blue / Slate Shades */
-  --blue-50: #eef2f4;
-  --blue-100: #cad6de;
-  --blue-200: #b0c2ce;
-  --blue-300: #8ca6b8;
-  --blue-400: #7695aa;
-  --blue-500: #547a95;
-  --blue-600: #4c6f88;
-  --blue-700: #3c576a;
-  --blue-800: #2e4352;
-  --blue-900: #23333f;
+    /* Blue / Slate Shades */
+    --blue-50: #eef2f4;
+    --blue-100: #cad6de;
+    --blue-200: #b0c2ce;
+    --blue-300: #8ca6b8;
+    --blue-400: #7695aa;
+    --blue-500: #547a95;
+    --blue-600: #4c6f88;
+    --blue-700: #3c576a;
+    --blue-800: #2e4352;
+    --blue-900: #23333f;
 
-  /* Grey Shades */
-  --grey-50: #e8e8e8;
-  --grey-100: #b9b9b9;
-  --grey-200: #979797;
-  --grey-300: #676767;
-  --grey-400: #494949;
-  --grey-500: #1c1c1c;
-  --grey-600: #191919;
-  --grey-700: #141414;
-  --grey-800: #0f0f0f;
-  --grey-900: #0c0c0c;
+    /* Grey Shades */
+    --grey-50: #e8e8e8;
+    --grey-100: #b9b9b9;
+    --grey-200: #979797;
+    --grey-300: #676767;
+    --grey-400: #494949;
+    --grey-500: #1c1c1c;
+    --grey-600: #191919;
+    --grey-700: #141414;
+    --grey-800: #0f0f0f;
+    --grey-900: #0c0c0c;
 }
 
 
 .custom-sidebar {
-  font-family: "Asap Condensed", sans-serif;
-  width: 230px;
-  min-height: calc(100vh - 75px);
+    font-family: "Asap Condensed", sans-serif;
+    width: 230px;
+    min-height: calc(100vh - 75px);
 
 }
 
 
 .custom-nav-link {
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 0 10px 10px 0;
-  transition: all 0.2s ease-in-out;
-  color: var(--blue-500);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 0 10px 10px 0;
+    transition: all 0.2s ease-in-out;
+    color: var(--blue-500);
 }
 
 .custom-nav-link:not(.active-tab):hover {
-  background-color: var(--blue-100);
-  color: var(--blue-500);
+    background-color: var(--blue-100);
+    color: var(--blue-500);
 }
 
 .active-tab {
-  width: 230px;
-  background-color: var(--blue-900);
-  color: var(--brown-500);
+    width: 230px;
+    background-color: var(--blue-900);
+    color: var(--brown-500);
 }
 
 .active-tab:hover {
-  color: var(--brown-500);
+    color: var(--brown-500);
 }
 
 .active-tab i {
-  color: var(--brown-500);
+    color: var(--brown-500);
 }
 
 .brand-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.0rem;
-  font-weight: 800;
-  color: var(--blue-800, #2e4352);
-  line-height: 0.9;
-  letter-spacing: -0.5px;
-  margin: 4px 0 0 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 800;
+    color: var(--blue-800, #2e4352);
+    line-height: 0.9;
+    letter-spacing: -0.5px;
+    margin: 4px 0 0 0;
 }
 
 .brand-subtitle {
-  font-family: "Asap Condensed", sans-serif;
-  font-size: 0.6rem;
-  font-weight: 500;
-  color: var(--blue-500, #547a95);
-  letter-spacing: 0.8px;
-  margin-top: 1px;
-  text-transform: capitalize;
+    font-family: "Asap Condensed", sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: var(--blue-500, #547a95);
+    letter-spacing: 0.8px;
+    margin-top: 1px;
+    text-transform: capitalize;
 }
 
 /*---------------------------------------------*/
 
 
+.main-content {
+    margin-left: 20px;
+    padding: 20px;
+}
 
 
+.stat-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+}
+
+.badge-plus {
+    color: #28a745;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.btn-add {
+    background-color: #4a4435;
+    color: white;
+    border-radius: 4px;
+}
+
+.btn-add:hover {
+    color: #fff;
+    opacity: 0.9;
+}
+
+.table thead th {
+    background-color: #fff;
+    color: #6c757d;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-bottom-width: 1px;
+}
 
 
+/*------------------------------------------------------------------------*/
 
+
+.breadcrumb-text {
+    font-size: 0.75rem;
+    color: #a1917d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Main Card Styling */
+.main-card {
+    background-color: #f7f3eb;
+    border: none;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.side-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+/* Form Styling */
+.form-label {
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.form-text {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #888;
+}
+
+/* Button Styling */
+.btn-register {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+}
+
+.btn-register:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: transparent;
+    border: 1px solid #34495e;
+    color: #34495e;
+    padding: 10px 30px;
+}
+
+/* Recent Items */
+.recent-item {
+    background-color: #f1f5f9;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.recent-icon {
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer Quote */
+.footer-quote {
+    background-color: #e5dcc3;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.quote-img {
+    width: 120px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Changes icon color when you hover over them */
+.text-secondary:hover i.fa-pen-to-square {
+    color: #0d6efd;
+    /* Blue for edit */
+}
+
+.text-secondary:hover i.fa-trash-can {
+    color: #dc3545;
+    /* Red for delete */
+}
