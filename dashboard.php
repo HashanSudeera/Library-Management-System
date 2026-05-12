@@ -74,7 +74,7 @@ $result = mysqli_query($conn, $sql);
                 </form>
 
                 <div class="table-responsive px-2">
-                    <table class="table table-hover align-middle border-0 text-center mb-0">
+                    <table class="table table-hover align-middle border-0 text-center mb-0 font_change">
                         <thead class="custom-table-header font_change">
                             <tr>
                                 <th scope="col">User_ID</th>
@@ -107,7 +107,7 @@ $result = mysqli_query($conn, $sql);
                 </div>
                 <?php if ($total_pages > 1): ?>
                 <nav class="mt-4">
-                    <ul class="pagination justify-content-center">
+                    <ul class="pagination justify-content-center custom_pagination">
                         <li class="page-item paging <?php echo ($page <= 1) ? 'disabled' : ''; ?>">
                             <a class="page-link" href="?page=<?php echo $page - 1; ?>&search=<?php echo $search; ?>">Previous</a>
                         </li>

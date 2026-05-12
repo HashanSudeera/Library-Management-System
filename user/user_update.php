@@ -179,8 +179,6 @@ $user = mysqli_fetch_assoc($result);
 
 
                     <div class="d-flex justify-content-end gap-3 mt-4">
-
-                        <button type="button" class="btn btn-danger">Delete Account</button>
                         <button type="submit" name="update" class="btn btn-primary">Update Profile</button>
                     </div>
                 </form>
