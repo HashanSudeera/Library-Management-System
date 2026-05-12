@@ -1,5 +1,12 @@
+<?php include 'session.php'?>
 <?php
 $current_page = basename($_SERVER['PHP_SELF']);
+
+if(!defined('BASE_URL')){
+    define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
+}
+
+?>
 
 if(!defined('BASE_URL')){
     define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
@@ -27,24 +34,17 @@ if(!defined('BASE_URL')){
             </button>
 
             <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#"><i class="bi bi-bell fs-5"></i></a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#"><i class="bi bi-gear fs-5"></i></a>
-                    </li>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center px-5">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-circle fs-4 me-1"></i>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php  echo "{$username}" ?>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-danger" href="login.php">Logout</a></li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./user/user_profile.php">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true">Log Out</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
