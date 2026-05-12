@@ -98,7 +98,7 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
                                     echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$row['email']}</td>";
                                     echo "  <td class='text-start border-bottom border-opacity-10 font_change'>{$row['birthday']}</td>";
                                     echo "  <td class='text-center border-bottom border-opacity-10'>
-                                                <a href='member_edit.php?id={$row['member_id']}' class='text-muted text-decoration-none me-3'>
+                                                <a href='edit_member.php?id={$row['member_id']}' class='text-muted text-decoration-none me-3'>
                                                 <i class='bi bi-pencil-square fs-5'></i>
                                                 </a> 
 
@@ -121,7 +121,6 @@ if ($count_result && $row = $count_result->fetch_assoc()) {
             </div>
         </div>
     </div>
-
 
 </body>
 

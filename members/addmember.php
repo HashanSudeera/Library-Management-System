@@ -87,23 +87,10 @@
                 </div>
 
             </div>
-             <div class="mt-2 w-100">
-                <?php include '../includes/footer_banner.php' ?>
-            </div>
+            
         </div>
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
-        <script>
-            window.onload = function() {
-                setTimeout(function() {
-                    alert('Data added successfully!');
-                    window.location.href = '../borrow/borrow.php';
-                    window.history.replaceState(null, null, window.location.pathname);
-                }, 100);
-            };
-        </script>
-    <?php endif; ?>
-
-    <script>
+   
+<script>
         window.addEventListener('load', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const status = urlParams.get('status');
@@ -111,44 +98,27 @@
 
             let shouldCleanUrl = false;
 
-            // --- 1. HANDLE SUCCESS POPUP ---
-            if (status === 'success') {
+            // success alert
+            if (status === 'Member Added Successfully') {
                 setTimeout(function() {
                     alert('Data added successfully!');
+                    window.location.href = '../members/member_details.php';
+                    window.history.replaceState(null, null, window.location.pathname);
                 }, 100);
                 shouldCleanUrl = true;
             }
 
-            // --- 2. HANDLE ERROR MESSAGES ---
+            // error handling
             if (errorCode) {
                 let errorTitle = "Error!";
                 let errorMessage = "";
 
                 switch (errorCode) {
-                    case 'duplicate_borrow_id':
+                    case 'duplicate_member_id':
                         errorTitle = "Already Exists!";
-                        errorMessage = "That Borrow ID has already been used. Please use a new one.";
+                        errorMessage = "That MEMBER ID has already been used. Please use a new one.";
                         break;
-                    case 'book_not_found':
-                        errorTitle = "Not Found!";
-                        errorMessage = "That Book ID does not exist in the system.";
-                        break;
-                    case 'member_not_found':
-                        errorTitle = "Not Found!";
-                        errorMessage = "That Member ID does not exist in the system.";
-                        break;
-                    case 'invalid_borrow_id':
-                        errorTitle = "Invalid Format!";
-                        errorMessage = "Borrow ID must be 'BR' followed by 3 numbers.";
-                        break;
-                    case 'invalid_book_id':
-                        errorTitle = "Invalid Format!";
-                        errorMessage = "Book ID must be 'B' followed by 3 numbers.";
-                        break;
-                    case 'invalid_member_id':
-                        errorTitle = "Invalid Format!";
-                        errorMessage = "Member ID must be 'M' followed by 3 numbers.";
-                        break;
+                    
                     default:
                         errorTitle = "System Error!";
                         errorMessage = "An unexpected error occurred. Please try again.";
@@ -165,7 +135,6 @@
 
                 document.getElementById('error-container').innerHTML = alertHTML;
 
-                // Auto-close error after 4 seconds
                 setTimeout(function() {
                     let alertElement = document.getElementById('dynamicErrorAlert');
                     if (alertElement) {
@@ -177,15 +146,14 @@
                 shouldCleanUrl = true;
             }
 
-            // --- 3. CLEAN UP URL ---
             if (shouldCleanUrl) {
-                // Removes ?status= or ?error= so it doesn't repeat on refresh
                 setTimeout(function() {
                     window.history.replaceState(null, null, window.location.pathname);
                 }, 200);
             }
         });
     </script>
+
     
     
 

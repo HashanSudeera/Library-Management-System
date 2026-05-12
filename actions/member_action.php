@@ -9,6 +9,13 @@ if (isset($_POST['add_member'])) {
     $email = $_POST['email'];
     $birthday = $_POST['birthday'];
 
+    $check_member = "SELECT * FROM member WHERE member_id = '$member_id'";
+    $member_result = mysqli_query($conn, $check_member);
+    if (mysqli_num_rows($member_result) > 0) {
+        header("Location: ../members/addmember.php?error=duplicate_member_id");
+        exit();
+    }
+
     $stmt = $conn->prepare("INSERT INTO member (member_id, first_name, last_name, email, birthday) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $member_id, $first_name, $last_name, $email, $birthday);
 
@@ -18,6 +25,7 @@ if (isset($_POST['add_member'])) {
         echo "Error: " . $stmt->error;
     }
     $stmt->close();
+
 }
 
 // --- UPDATE MEMBER ---
@@ -32,11 +40,10 @@ if (isset($_POST['update_member'])) {
     $stmt->bind_param("sssss", $first_name, $last_name, $email, $birthday, $member_id);
 
     if ($stmt->execute()) {
-        header("Location: ../members/member_list.php?msg=Member Updated Successfully");
+        header("Location: ../members/edit_member.php?id=$member_id&status=updated");
     } else {
         echo "Error: " . $stmt->error;
     }
-    $stmt->close();
 }
 
 // --- DELETE MEMBER ---
