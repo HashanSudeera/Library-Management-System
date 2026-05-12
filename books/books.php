@@ -140,7 +140,7 @@
                                                             <i class='bi bi-pencil-square'></i>
                                             </a>
 
-                                            <a href='./books/deleteBook.php?id=" . $row['book_id']. "' class='btn btn-light' onclick='return confirm(\"Are you sure? \")'>
+                                            <a href='./action/deleteBook.php?id=" . $row['book_id']. "' class='btn btn-light' onclick='return confirm(\"Are you sure? \")'>
                                                             <i class='bi bi-trash3'></i>
                                             </a>
                                             </tr>";
@@ -156,8 +156,6 @@
             
         
     
-    
-
 
 
 </div>

@@ -33,12 +33,12 @@
                          <hr class="mb-4" style="border-color: var(--brown-600);">
                            
 
-                  <form action="books/bookProcess.php" class="needs-validation" novalidate method="post">
+                  <form action="action/bookProcess.php" class="needs-validation" novalidate method="post">
 
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-lablel">Book ID</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="book_id" pattern="B\d{3}" placeholder="e.g., B001"required>
+                            <input type="text" class="form-control" name="book_id" pattern="B\d{3}" placeholder="e.g. B001"required>
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Please provide a valid Book ID (e.g., B001).</div>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-lable">Book Name</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="book_name" value="" placeholder="Potta Harry" required>
+                            <input type="text" class="form-control" name="book_name" value="" placeholder="War And Peace" required>
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Please provide a valid Book Name</div>
                         </div>

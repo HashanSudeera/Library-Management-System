@@ -14,7 +14,7 @@ if (isset($_POST['book_id']) && isset($_POST['book_name']) && isset($_POST['cate
 
         if ($conn->query($sql) === TRUE) {
         $conn->close();
-        header("Location: books.php");
+        header("Location: ../books/books.php");
         exit();
         //didnt' add a notification to books page.
 

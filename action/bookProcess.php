@@ -13,14 +13,14 @@ if (isset($_POST['book_id']) && isset($_POST['book_name']) && isset($_POST['cate
     $result =$conn->query($checksql);
 
     if($result->num_rows>0){
-        header("Location: newBook.php ? status=duplicate");
+        header("Location: ../books/newBook.php ? status=duplicate");
         exit();
     }else{
         $sql = "INSERT INTO book (book_id, book_name, category_id) VALUES ('$book_id', '$book_name','$category_id')";
 
         if ($conn->query($sql) === TRUE) {
         $conn->close();
-        header("Location: books.php");
+        header("Location: ../books/books.php");
         exit();
         //didnt' add a notification to books page.
 

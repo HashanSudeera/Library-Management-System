@@ -53,7 +53,7 @@
                          <hr class="mb-4" style="border-color: var(--brown-600);">
                            
 
-                  <form action="books/updateBook.php" class="needs-validation" novalidate method="post">
+                  <form action="action/updateBook.php" class="needs-validation" novalidate method="post">
 
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-lablel">Book ID</label>

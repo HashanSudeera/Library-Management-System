@@ -8,14 +8,14 @@ if (isset($_GET['id'])){
         $sql = "DELETE FROM book WHERE book_id = '$book_id'";
         
         if($conn->query($sql) === TRUE){
-            header("Location: books.php?status=deleted");
+            header("Location: ../books/books.php?status=deleted");
             exit(); 
         }
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() == 1451) {
-            header("Location: books.php?status=restricted");
+            header("Location: ../books/books.php?status=restricted");
         } else {
-            header("Location: books.php?status=error");
+            header("Location: ../books/books.php?status=error");
         }
         exit();
     }
