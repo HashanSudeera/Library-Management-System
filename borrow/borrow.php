@@ -122,7 +122,7 @@ include '../actions/borrow_fetch.php';
 
                                                 <a href='../actions/borrow_actions.php?delete_id={$row['borrow_id']}' 
                                                     class='text-muted text-decoration-none' 
-                                                    onclick=\"return confirm('Are you sure you want to delete this record? This action cannot be undone.');\">
+                                                    onclick=\"return confirm('Are you sure you want to delete this record?');\">
                                                 <i class='bi bi-trash fs-5'></i>
                                                 </a>
                                             </td>";

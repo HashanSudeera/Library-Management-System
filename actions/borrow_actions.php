@@ -57,7 +57,7 @@ if (isset($_POST['add_borrow'])) {
 
 if (isset($_POST['update_borrow'])) {
 
-    // 1. Grab and sanitize the data
+    //get update form data
     $borrow_id = $_POST['borrow_id'];
     $book_id = $_POST['book_id'];
     $member_id = $_POST['member_id'];

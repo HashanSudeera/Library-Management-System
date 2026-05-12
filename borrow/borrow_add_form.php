@@ -102,17 +102,6 @@
                 <?php include '../includes/footer_banner.php' ?>
             </div>
         </div>
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
-        <script>
-            window.onload = function() {
-                setTimeout(function() {
-                    alert('Data added successfully!');
-                    window.location.href = '../borrow/borrow.php';
-                    window.history.replaceState(null, null, window.location.pathname);
-                }, 100);
-            };
-        </script>
-    <?php endif; ?>
 
     <script>
         window.addEventListener('load', function() {
@@ -122,15 +111,17 @@
 
             let shouldCleanUrl = false;
 
-            // --- 1. HANDLE SUCCESS POPUP ---
+            // success alert
             if (status === 'success') {
                 setTimeout(function() {
                     alert('Data added successfully!');
+                    window.location.href = '../borrow/borrow.php';
+                    window.history.replaceState(null, null, window.location.pathname);
                 }, 100);
                 shouldCleanUrl = true;
             }
 
-            // --- 2. HANDLE ERROR MESSAGES ---
+            // error handling
             if (errorCode) {
                 let errorTitle = "Error!";
                 let errorMessage = "";
@@ -176,7 +167,6 @@
 
                 document.getElementById('error-container').innerHTML = alertHTML;
 
-                // Auto-close error after 4 seconds
                 setTimeout(function() {
                     let alertElement = document.getElementById('dynamicErrorAlert');
                     if (alertElement) {
@@ -188,9 +178,7 @@
                 shouldCleanUrl = true;
             }
 
-            // --- 3. CLEAN UP URL ---
             if (shouldCleanUrl) {
-                // Removes ?status= or ?error= so it doesn't repeat on refresh
                 setTimeout(function() {
                     window.history.replaceState(null, null, window.location.pathname);
                 }, 200);

@@ -1,8 +1,8 @@
 <?php
-// 1. Include database connection
+//Include database connection
 include '../includes/db_config.php';
 
-
+//fetch borrow row data
 if (isset($_GET['id'])) {
     $borrow_id = mysqli_real_escape_string($conn, $_GET['id']);
     
@@ -27,6 +27,7 @@ if (isset($_GET['id'])) {
 <?php include '../includes/header.php' ?>
 
 <body>
+
     <?php include '../includes/top_navbar.php' ?>
 
     <div class="d-flex font_change" style="min-height: 100vh;">
@@ -143,8 +144,6 @@ if (isset($_GET['id'])) {
             window.addEventListener('load', function() {
                 setTimeout(function() {
                     alert('Data updated successfully!');
-                    
-                    // Clean the URL to remove the status, but KEEP the Borrow ID!
                     let currentUrl = window.location.pathname;
                     let borrowId = "<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>";
                     window.location.href = '../borrow/borrow.php';
@@ -164,7 +163,7 @@ if (isset($_GET['id'])) {
 
             let shouldCleanUrl = false;
 
-            // --- 2. HANDLE ERROR MESSAGES ---
+            // error handling
             if (errorCode) {
                 let errorTitle = "Error!";
                 let errorMessage = "";
@@ -177,14 +176,6 @@ if (isset($_GET['id'])) {
                     case 'member_not_found':
                         errorTitle = "Not Found!";
                         errorMessage = "That Member ID does not exist in the system.";
-                        break;
-                    case 'invalid_book_id':
-                        errorTitle = "Invalid Format!";
-                        errorMessage = "Book ID must be 'B' followed by 3 numbers.";
-                        break;
-                    case 'invalid_member_id':
-                        errorTitle = "Invalid Format!";
-                        errorMessage = "Member ID must be 'M' followed by 3 numbers.";
                         break;
                     default:
                         errorTitle = "System Error!";
