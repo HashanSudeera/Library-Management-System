@@ -94,6 +94,7 @@
   margin-top: 1px;
   text-transform: capitalize;
 }
+<<<<<<< feature-borrow
 
 /*------------------borrow---------------------------*/
 
@@ -221,6 +222,12 @@
 }
 
 
+=======
+.custom-table-header th {
+    background-color: var(--brown-600); 
+    color: var(--brown-50);
+}
+>>>>>>> main
 
 /*--------------------------------*/
 
@@ -246,6 +253,7 @@
         opacity: 1;
     }
 
+<<<<<<< feature-borrow
     .quote-image {
         width: 100px;
         height: 100px;
@@ -261,6 +269,15 @@
         font-weight: 500;
         line-height: 1.3;
     }
+=======
+.font_change{
+    font-family: "Asap Condensed", sans-serif;
+}
+
+.custom_card{
+    background-color: var(--blue-600);
+}
+>>>>>>> main
 
     .quote-author {
         color: #5a5a5a;

@@ -1,3 +1,4 @@
+<?php include 'session.php'?>
 <?php
 $current_page = basename($_SERVER['PHP_SELF']);
 
@@ -28,24 +29,19 @@ if(!defined('BASE_URL')){
             </button>
 
             <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#"><i class="bi bi-bell fs-5"></i></a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#"><i class="bi bi-gear fs-5"></i></a>
-                    </li>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center px-5">
 
                     <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php  echo "{$username}" ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./user/user_profile.php">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true">Log Out</a></li>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
