@@ -260,8 +260,15 @@
     border-bottom-width: 1px;
 }
 
+/* Right Side: Filing Guidelines Container */
+.custom-guide-card {
+    background-color: var(--blue-100); /* Slate blue-grey from foundation */
+    border: 1px solid var(--blue-200);
+}
 
-/*------------------------------------------------------------------------*/
+.guideline-item li {
+    margin-bottom: 4px;
+}
 
 
 .breadcrumb-text {
@@ -459,3 +466,13 @@
         font-size: 0.9rem;
     }
 
+.font_change{
+    font-family: "Asap Condensed", sans-serif;
+}
+
+.custom_card{
+    background-color: var(--brown-200);
+}
+.custom_width{
+    width: 500px;
+}
