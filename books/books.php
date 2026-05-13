@@ -17,8 +17,14 @@
         $whereClause = " WHERE book_name LIKE '%$search%' OR book_id LIKE '%$search%'";
     }
 
-        $sql="SELECT * FROM book " . $whereClause . " ORDER BY $sort $order LIMIT $limit OFFSET $offset";
+        $sql="SELECT 
+        book.book_id, 
+        book.book_name, 
+        bookcategory.category_name 
+        FROM book JOIN bookcategory 
+        ON book.category_id = bookcategory.category_id " . $whereClause . " ORDER BY $sort $order LIMIT $limit OFFSET $offset";
         $result= mysqli_query($conn, $sql);
+
 
         $total_result= mysqli_query($conn,"SELECT COUNT(book_id) AS total FROM book");
         $total_books=mysqli_fetch_assoc($total_result)['total'];
@@ -133,7 +139,7 @@
                                             echo "<tr>
                                             <td>" .$row["book_id"] . "</td>
                                             <td>" . $row["book_name"] . "</td>
-                                            <td>" . $row["category_id"] . "</td>
+                                            <td>" . $row["category_name"] . "</td>
                                             <td>
 
                                             <a href='./books/editBook.php?id=" . $row['book_id']. "' class='btn btn-light'>
