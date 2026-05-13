@@ -8,7 +8,7 @@ if(!defined('BASE_URL')){
 
 ?>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom px-2 py-1">
+<nav class="navbar navbar-expand-lg border-bottom px-2 py-1 custom_topnav">
         <div class="container-fluid">
             <div class="logo-wrapper">
                 <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="<?php echo BASE_URL; ?>dashboard.php">
@@ -32,7 +32,7 @@ if(!defined('BASE_URL')){
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center px-5">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php  echo "{$username}" ?>
                         </a>
                         <ul class="dropdown-menu">

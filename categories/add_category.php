@@ -5,14 +5,20 @@
 <body>
     <?php include '../includes/top_navbar.php'?> 
 
-    <div class="d-flex">
+    <div class="d-flex font_change">
         <?php include '../includes/sidebar.php'?> 
 
         <div class="main-content w-100">
             <div class="container-fluid px-4">
                 
                 <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
-                    <div class="breadcrumb-text">DASHBOARD > CATEGORYS > <span class="fw-bold">CATEGORY REGISTRATION</span></div>
+                    <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-1">
+                        <li class="breadcrumb-item">Category</li>
+                        <li class="breadcrumb-item">Category List</li>
+                        <li class="breadcrumb-item active">Add Category</li>
+                    </ol>
+                </nav>
                     <a href="category_list.php">
                         <button class="btn btn-outline-secondary btn-sm px-4">View categories</button>
                     </a>
@@ -21,7 +27,7 @@
                 <div class="row g-4">
                     <div class="col-xl-8">
                         <div class="main-card shadow-sm">
-                            <h2 class="mb-4" style="font-family: serif; color: #2c3e50;">Create New Category</h2>
+                            <h2 class="mb-4" style="color: #2c3e50;">Create New Category</h2>
                             
                             <form action="../action/category_action.php" method="POST">
                                 <div class="row mb-4">
@@ -51,6 +57,10 @@
                     </div>
 
                 </div>
+                <div class="h-25 d-inline-block"></div>
+                 <div class="mt-2 w-100">
+                <?php include '../includes/footer_banner.php' ?>
+            </div>
             </div>
         </div>
     </div>

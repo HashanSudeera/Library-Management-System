@@ -87,6 +87,9 @@
                 </div>
 
             </div>
+            <div class="mt-2 w-100">
+                <?php include '../includes/footer_banner.php' ?>
+            </div>
             
         </div>
    

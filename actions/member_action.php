@@ -50,15 +50,21 @@ if (isset($_POST['update_member'])) {
 if (isset($_GET['delete_id'])) {
     $member_id = $_GET['delete_id'];
 
-    $stmt = $conn->prepare("DELETE FROM member WHERE member_id = ?");
-    $stmt->bind_param("s", $member_id);
-
-    if ($stmt->execute()) {
-        header("Location: ../members/member_list.php?status=deleted");
-    } else {
-        echo "Error: " . $stmt->error;
+    try {
+        $sql = "DELETE FROM member WHERE member_id = '$member_id'";
+        
+        if($conn->query($sql) === TRUE){
+            header("Location: ../members/member_details.php?status=deleted");
+            exit(); 
+        }
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1451) {
+            header("Location: ../members/member_details.php?status=restricted");
+        } else {
+            header("Location: ../members/member_details.php?status=error");
+        }
+        exit();
     }
-    $stmt->close();
 }
 
 $conn->close();

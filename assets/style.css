@@ -253,8 +253,8 @@
 }
 
 .table thead th {
-    background-color: #fff;
-    color: #6c757d;
+    background-color: var(--grey-400);
+    color: #ffffff;
     font-size: 0.85rem;
     text-transform: uppercase;
     border-bottom-width: 1px;
@@ -453,5 +453,14 @@
 
 
 .custom_width{
-    width: 500px;
+    width: 50%;
+}
+
+.dashboard-card{
+    background-color: var(--blue-200);
+    
+}
+
+.custom_topnav{
+    background-color: var(--brown-200);
 }

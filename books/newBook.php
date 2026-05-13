@@ -9,12 +9,11 @@
     <?php include '../includes/header.php';  ?>
 
 <body>
-    <?php 
-     include '../includes/top_navbar.php';
-    ?>
+    <?php include '../includes/top_navbar.php' ?>
 
-    <div class="d-flex">
-        <?php include '../includes/sidebar.php';?>
+    <div class="d-flex font_change" style="min-height: 100vh;">
+
+        <?php include '../includes/sidebar.php' ?>
 
         <div class="main-content flex-grow-1 d-flex flex-column p-4">
             <nav aria-label="breadcrumb">
@@ -114,8 +113,12 @@
                         </div>
                         
                     </div>
+                    
                 </div>
   </div>
+  <div class="mt-2 w-100">
+                <?php include '../includes/footer_banner.php' ?>
+            </div>
  
   </div>
   
