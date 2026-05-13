@@ -24,7 +24,7 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
 <?php include '../includes/header.php'?>
 <body>
 <?php include '../includes/top_navbar.php'?> 
-<div class="d-flex">
+<div class="d-flex font_change">
     
     <?php include '../includes/sidebar.php'?> 
 
@@ -33,11 +33,10 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-1">
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Dashboard</a></li>
-                        <li class="breadcrumb-item active">CATEGORIES</li>
+                        <li class="breadcrumb-item">Category</li>
+                        <li class="breadcrumb-item active">Category List</li>
                     </ol>
                 </nav>
-                <h2 class="fw-bold m-0">Category list</h2>
             </div>
 
             <div class="col-auto">
@@ -123,19 +122,23 @@ $total_cats = mysqli_fetch_assoc($count_result)['total'];
                         <tbody>
                             <?php
 
-                            $query = "SELECT * FROM bookcategory $where_clause ORDER BY date_modified DESC";
+                            $query = "SELECT * FROM bookcategory $where_clause ORDER BY date_modified ASC";
                             $result = mysqli_query($conn, $query);
+
+                            
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+
+                                    $formatted_date = date('d/m/Y', strtotime($row['date_modified']));
                             ?>
                             <tr>
-                                <td class="ps-4 fw-bold py-3">
+                                <td class="ps-4 py-3">
                                     <i class="fa-solid fa-feather-pointed text-warning me-2"></i> 
                                     <?= htmlspecialchars($row['category_Name']) ?>
                                 </td>
-                                <td class="text-primary fw-bold"><?= htmlspecialchars($row['category_id']) ?></td>
-                                <td class="text-muted small"><?= htmlspecialchars($row['date_modified']) ?></td>
+                                <td class="fw-medium"><?= htmlspecialchars($row['category_id']) ?></td>
+                                <td class="fw-medium"><?=  $formatted_date ?></td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center align-items-center gap-3">
                                         <a href="edit_category.php?id=<?= urlencode($row['category_id']) ?>&name=<?= urlencode($row['category_Name']) ?>" 

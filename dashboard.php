@@ -21,6 +21,12 @@ $count_res = mysqli_query($conn, "SELECT COUNT(*) as total FROM user");
 $total_staff = mysqli_fetch_assoc($count_res)['total'];
 $total_pages = ceil($total_staff / $limit);
 
+$count_res = mysqli_query($conn, "SELECT COUNT(*) as total FROM book");
+$total_book = mysqli_fetch_assoc($count_res)['total'];
+
+$count_res = mysqli_query($conn, "SELECT COUNT(*) as total FROM member");
+$total_member = mysqli_fetch_assoc($count_res)['total'];
+
 //fetch all staff members
 $sql = "SELECT * FROM user $where_clause ORDER BY user_id asc LIMIT $offset, $limit   ";
 $result = mysqli_query($conn, $sql);
@@ -34,29 +40,44 @@ $result = mysqli_query($conn, $sql);
 
     <?php include 'includes/top_navbar.php' ?>
 
-
-    <div class="d-flex">
+    <div class="d-flex font_change" style="min-height: 100vh;">
 
         <?php include 'includes/sidebar.php' ?>
 
-        <div class="main-content flex-grow-1 p-4">
+        <div class="main-content flex-grow-1 d-flex flex-column p-4">
 
 
             <div class="row align-items-center mb-4">
+                <h3>Overview</h3>
 
-                <div class="col-md-8 d-flex gap-4 font_change w-25">
-                    <div class="card custom_card border-0 shadow-sm flex-fill p-2 rounded-3 ">
+                <div class="col-md-5 d-flex gap-4 font_change w-25">
+                    <div class="card border-0 shadow-sm flex-fill p-2 rounded-3 ">
                         <div class="card dashboard-card h-100 p-3">
-                            <small class="text-muted fs-3 text-uppercase">Total Staff</small>
+                            <small class="text-muted fs-4 text-uppercase fw-semibold">Total Staff</small>
                             <h1 class="display-4 fw-bold mt-2"><?php echo $total_staff; ?></h1>
                         </div>
                     </div>
-
-                    
+                </div>
+                <div class="col-md-5 d-flex gap-4 font_change w-25">
+                    <div class="card border-0 shadow-sm flex-fill p-2 rounded-3 ">
+                        <div class="card dashboard-card h-100 p-3">
+                            <small class="text-muted fs-4 text-uppercase fw-semibold">Total Books</small>
+                            <h1 class="display-4 fw-bold mt-2"><?php echo $total_book; ?></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 d-flex gap-4 font_change w-25">
+                    <div class="card border-0 shadow-sm flex-fill p-2 rounded-3 ">
+                        <div class="card dashboard-card h-100 p-3">
+                            <small class="text-muted fs-4 text-uppercase fw-semibold">Total Members</small>
+                            <h1 class="display-4 fw-bold mt-2"><?php echo $total_member; ?></h1>
+                        </div>
+                    </div>
                 </div>
 
             </div>
 
+             <h3>Library Staff Records</h3>
             <div class="card border-0 shadow-sm bg-body-tertiary p-4 rounded-4">
 
                 <form action="dashboard.php" method="GET" class="mb-4">
@@ -74,7 +95,7 @@ $result = mysqli_query($conn, $sql);
                 </form>
 
                 <div class="table-responsive px-2">
-                    <table class="table table-hover align-middle border-0 text-center mb-0 font_change">
+                    <table class="table table-hover align-middle border-0 text-center mb-2 font_change">
                         <thead class="custom-table-header font_change">
                             <tr>
                                 <th scope="col">User_ID</th>
@@ -91,11 +112,11 @@ $result = mysqli_query($conn, $sql);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     ?>
                                     <tr>
-                                        <td ><?php echo $row['user_id']; ?></td>
-                                        <td><?php echo $row['first_name']; ?></td>
-                                        <td><?php echo $row['last_name']; ?></td>
-                                        <td><?php echo $row['username']; ?></td>
-                                        <td><?php echo $row['email']; ?></td>
+                                        <td class="px-4 py-3"><?php echo $row['user_id']; ?></td>
+                                        <td class="px-4 py-3"><?php echo $row['first_name']; ?></td>
+                                        <td class="px-4 py-3"><?php echo $row['last_name']; ?></td>
+                                        <td class="px-4 py-3"><?php echo $row['username']; ?></td>
+                                        <td class="px-4 py-3"><?php echo $row['email']; ?></td>
                                     </tr>
                                     <?php 
                                 } 
@@ -126,7 +147,11 @@ $result = mysqli_query($conn, $sql);
                 <?php endif; ?>
 
             </div>
+            <div class="row align-items-center mb-4 mt-2 w-100">
+                <?php include 'includes/footer_banner.php' ?>
+            </div>
         </div>
+         
     </div>
 
 </body>

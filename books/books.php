@@ -38,7 +38,7 @@
      include '../includes/top_navbar.php';
     ?>
 
-<div class="d-flex">
+<div class="d-flex font_change">
         <?php include '../includes/sidebar.php';?>
 
         <div class="main-content flex-grow-1 p-4">

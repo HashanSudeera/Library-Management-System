@@ -15,7 +15,7 @@
 <body>
     <?php include '../includes/top_navbar.php'?> 
 
-    <div class="d-flex">
+    <div class="d-flex font_change">
         <?php include '../includes/sidebar.php'?> 
 
         <div class="main-content w-100">
@@ -31,7 +31,7 @@
                 <div class="row g-4">
                     <div class="col-xl-8">
                         <div class="main-card shadow-sm">
-                            <h2 class="mb-4" style="font-family: serif; color: #2c3e50;">Update Category</h2>
+                            <h2 class="mb-4 font" style="color: #2c3e50;">Update Category</h2>
                             <?php
                             // 1. Get data from URL parameters
                             $cat_id = $_GET['id'] ?? '';
@@ -68,6 +68,10 @@
 
                     </div>
                 </div>
+                <div class="h-25 d-inline-block"></div>
+                <div class="mt-2 w-100">
+                <?php include '../includes/footer_banner.php' ?>
+            </div>
             </div>
         </div>
     </div>

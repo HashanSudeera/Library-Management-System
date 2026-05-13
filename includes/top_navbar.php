@@ -8,15 +8,10 @@ if(!defined('BASE_URL')){
 
 ?>
 
-if(!defined('BASE_URL')){
-    define('BASE_URL', 'http://localhost/web_project/Library-Management-System/'); 
-}
-
-?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom px-2 py-1">
+<nav class="navbar navbar-expand-lg border-bottom px-2 py-1 custom_topnav">
         <div class="container-fluid">
             <div class="logo-wrapper">
-                <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="dashboard.php">
+                <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="<?php echo BASE_URL; ?>dashboard.php">
 
                     <img src="<?php echo BASE_URL; ?>assets/img/UOC_logo.png" alt="Smart Library Logo" class="me-2" style="width: 45px; height: auto;">
 
@@ -37,13 +32,13 @@ if(!defined('BASE_URL')){
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center px-5">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php  echo "{$username}" ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./user/user_profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>user/user_profile.php">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true">Log Out</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>action/login_register.php?logout=true" style="background-color:#f59090"><b>Log Out</b></a></li>
                             
                         </ul>
                     </li>
